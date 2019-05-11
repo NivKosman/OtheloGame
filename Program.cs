@@ -7,6 +7,8 @@ namespace Ex02_Othelo
         {
             Console.WriteLine("Hola!!!");
             Console.WriteLine(":)");
+            Console.WriteLine(":)");
+            Console.WriteLine(":)");
 
 
         }
