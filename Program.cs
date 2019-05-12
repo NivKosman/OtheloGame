@@ -5,9 +5,11 @@ namespace Ex02_Othelo
     {
         public static void Main()
         {
-            Console.WriteLine("Hollla!!!");
-            Console.WriteLine("Good Luckk to us... :)!!");
-            Console.WriteLine("Andrey Change and now again niv!!");
+               Console.WriteLine("Hollla!!!");                         
+               Console.WriteLine("Good Luckk to us... :)!!");
+               Console.WriteLine("Andrey Change and now again niv!!");
+               Ex02.ConsoleUtils.Screen.Clear();
+
 
         }
     }
