@@ -6,7 +6,7 @@ namespace Ex02_Othelo
         public static void Main()
         {
             Console.WriteLine("Hollla!!!");
-            Console.WriteLine("Good Luck to us... :)!!");
+            Console.WriteLine("Good Luckk to us... :)!!");
             Console.WriteLine("Niv Change");
 
         }
