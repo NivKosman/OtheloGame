@@ -11,8 +11,9 @@ namespace Ex02_Othelo
                Ex02.ConsoleUtils.Screen.Clear();
                Console.WriteLine("Another one");
                Console.WriteLine("Another two..");
+               Console.WriteLine("#Ethalnu..");
 
 
-          }
+        }
     }
 }
