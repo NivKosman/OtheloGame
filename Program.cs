@@ -10,6 +10,7 @@ namespace Ex02_Othelo
                Console.WriteLine("Andrey Change and now again niv!!");
                Ex02.ConsoleUtils.Screen.Clear();
                Console.WriteLine("Another one");
+               Console.WriteLine("Another two..");
 
 
           }
