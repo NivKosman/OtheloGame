@@ -9,8 +9,9 @@ namespace Ex02_Othelo
                Console.WriteLine("Good Luckk to us... :)!!");
                Console.WriteLine("Andrey Change and now again niv!!");
                Ex02.ConsoleUtils.Screen.Clear();
+               Console.WriteLine("Another one");
 
 
-        }
+          }
     }
 }
