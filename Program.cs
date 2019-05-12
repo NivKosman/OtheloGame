@@ -7,7 +7,7 @@ namespace Ex02_Othelo
         {
             Console.WriteLine("Hollla!!!");
             Console.WriteLine("Good Luckk to us... :)!!");
-            Console.WriteLine("Niv Change");
+            Console.WriteLine("Andrey Change!!");
 
         }
     }
