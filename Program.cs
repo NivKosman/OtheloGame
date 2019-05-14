@@ -14,7 +14,7 @@ namespace Ex02_Othelo
             Console.WriteLine("Another one");
             Console.WriteLine("Another two..");
             Console.WriteLine("#Ethalnu..\n");
-            Console.WriteLine("#Newwww123123123..\n");
+            Console.WriteLine("#Newwww- Please work..\n");
 
             Move move_test;
             Console.ReadLine();
