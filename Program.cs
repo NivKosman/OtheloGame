@@ -8,9 +8,9 @@ namespace Ex02_Othelo
             Move.s_Height = 8;
             Move.s_Width = 8;
 
-           
-  
 
+
+               Console.WriteLine("sdads");
               Move move_test;
             Console.ReadLine();
             //String input = Console.ReadLine(); TODO: figure out why unable to get input from user
