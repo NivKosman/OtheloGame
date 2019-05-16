@@ -8,9 +8,9 @@ namespace Ex02_Othelo
 {
      public class Player
      {
-          List<Move> m_ValidMoves;
+          List<Move> m_ValidMoves; // useless here -> engine should hold it
           private int m_Score = 0;
-          private bool v_IsComputer;
+          private readonly ePlayerType r_PlayerType;
           private string m_PlayerName;
 
           public string PlayerName
@@ -25,13 +25,21 @@ namespace Ex02_Othelo
                Black,
           }
 
+          public enum ePlayerType
+          {
+               Player,
+               Computer
+
+          }
+
           private readonly eColor r_Color;
 
-          public Player(ref bool i_IsComputer, ref eColor i_Color)
+          public Player(ref ePlayerType i_PlayerType, ref eColor i_Color)
           {
-               v_IsComputer = i_IsComputer;
+               r_PlayerType = i_PlayerType;
+
                r_Color = i_Color;
-               if(v_IsComputer)
+               if(r_PlayerType == ePlayerType.Computer)
                {
                     m_PlayerName = "Computer";
                }
@@ -40,7 +48,12 @@ namespace Ex02_Othelo
           public int Score
           {
                get { return m_Score; }
-               set { m_Score++; }
+               set { m_Score = value; }
+          }
+
+          public void InitScore()
+          {
+               m_Score = 0; 
           }
 
 
