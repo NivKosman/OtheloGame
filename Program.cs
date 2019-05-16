@@ -5,8 +5,8 @@ namespace Ex02_Othelo
     {
         public static void Main()
         {
-            Move.s_Height = 8;
-            Move.s_Width = 8;
+            //Move.s_Height = 8;
+            //Move.s_Width = 8;
             Console.WriteLine("Hollla!!!");
             Console.WriteLine("Good Luckk to us... :)!!");
             Console.WriteLine("Andrey Change and now again niv!!");
@@ -21,8 +21,8 @@ namespace Ex02_Othelo
             String input = "B1";
             Move.TryParse(input, out move_test);
             Console.WriteLine("Move is Quit: {0}", move_test.IsQuitMove());
-            Console.WriteLine(move_test.GetCol());
-            Console.WriteLine(move_test.GetRow());
+            Console.WriteLine(move_test.Col);
+            Console.WriteLine(move_test.Row);
 
         }
     }

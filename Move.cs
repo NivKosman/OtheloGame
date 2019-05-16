@@ -3,14 +3,15 @@ namespace Ex02_Othelo
 {
     public class Move
     {
-        public static int s_Width;
-        public static int s_Height;
+        //TODO-> insert values to witdh and height acrroding to board size 
+        private static int s_Width;
+        private static int s_Height;
 
-        int m_Row;
-        int m_Col;
+        private int m_Row;
+        private int m_Col;
         bool m_Quite;
-        const int c_LengthOfMoveStr = 2;
-        const int c_LengthOfQuitStr = 1;
+        const int k_LengthOfMoveStr = 2;
+        const int k_LengthOfQuitStr = 1;
 
 
         public Move(int i_Row, int i_Col)
@@ -24,21 +25,22 @@ namespace Ex02_Othelo
             m_Quite = i_IsQuit;
         }
 
+          public static bool TryParse(string i_MoveString, out Move o_Move)
+          {
+               o_Move = null;
+               if (i_MoveString == null)
+               {
+                    return false;
+               }
 
-        public static bool TryParse(string i_MoveString, out Move o_Move) 
-        {
-            o_Move = null;
-            if (i_MoveString == null)
-            {
-                return false;
-            }
-            bool v_InputIsValid = checkMoveStringIsValidMove(i_MoveString, ref o_Move);
+               bool v_InputIsValid = checkMoveStringIsValidMove(i_MoveString, ref o_Move);
 
-            return v_InputIsValid;
+               return v_InputIsValid;
 
-        }
+          }
+
         private static bool checkMoveStringIsValidMove(string i_InputMoveStr, 
-                                                        ref Move io_Move)
+                                                         ref Move io_Move)
         {
             bool v_LengthIsValid;
             bool v_StringIsValidMove = false;
@@ -54,8 +56,8 @@ namespace Ex02_Othelo
 
         private static bool checkMoveStringLengthIsValid(string i_InputMoveStr)
         {
-            bool v_QuitLength = i_InputMoveStr.Length == c_LengthOfQuitStr;
-            bool v_MoveLength = i_InputMoveStr.Length == c_LengthOfMoveStr;
+            bool v_QuitLength = i_InputMoveStr.Length == k_LengthOfQuitStr;
+            bool v_MoveLength = i_InputMoveStr.Length == k_LengthOfMoveStr;
 
             return v_QuitLength || v_MoveLength;
         }
@@ -71,13 +73,13 @@ namespace Ex02_Othelo
             }
             else
             {
-                v_MoveIsCharAndIndexInRange = CharAndNumInValidRange(i_InputMoveStr, ref io_Move);
+                v_MoveIsCharAndIndexInRange = CharAndNumInValidRange(i_InputMoveStr,  io_Move);
             }
 
             return v_MoveIsQuit || v_MoveIsCharAndIndexInRange;
         }
 
-        private static bool CharAndNumInValidRange(string i_InputMoveStr, ref Move io_Move)
+        private static bool CharAndNumInValidRange(string i_InputMoveStr, Move io_Move)
         {
             //TODO: move indexes to const vars
             char v_FirstChar = i_InputMoveStr[0];
@@ -131,16 +133,19 @@ namespace Ex02_Othelo
             return i_Input.Equals("Q");
         }
 
-        public int GetRow()
-        {
-            return m_Row; 
-        }
-        public int GetCol()
-        {
-            return m_Col; 
-        }
+        public int Row
+          {
+               get { return m_Row; }
+               set { m_Row = value; }
+          }
 
-        public bool IsQuitMove()
+          public int Col
+          {
+               get { return m_Col; }
+               set { m_Col = value; }
+          }
+
+          public bool IsQuitMove()
         {
             return m_Quite; 
         }
