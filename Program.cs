@@ -24,6 +24,6 @@ namespace Ex02_Othelo
             Console.WriteLine(move_test.Col);
             Console.WriteLine(move_test.Row);
 
-        }
-    }
+          }
+     }
 }

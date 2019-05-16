@@ -9,20 +9,30 @@ namespace Ex02_Othelo
 
         private int m_Row;
         private int m_Col;
-        bool m_Quite;
+        private readonly eMoveTypes r_MoveType;
         const int k_LengthOfMoveStr = 2;
         const int k_LengthOfQuitStr = 1;
 
-
+        public enum eMoveTypes
+        {
+            Regular,
+            Quit, 
+        }
+        
+        public eMoveTypes Type 
+        {
+            get { return r_MoveType; } 
+        }
+      
         public Move(int i_Row, int i_Col)
         {
             m_Row = i_Row;
             m_Col = i_Col;
         }
 
-        public Move(bool i_IsQuit)
+        public Move(eMoveTypes i_MoveType)
         {
-            m_Quite = i_IsQuit;
+               r_MoveType = eMoveTypes.Quit;
         }
 
           public static bool TryParse(string i_MoveString, out Move o_Move)
@@ -67,9 +77,9 @@ namespace Ex02_Othelo
             bool v_MoveIsCharAndIndexInRange = false;
             bool v_MoveIsQuit = textIsQuit(i_InputMoveStr);
 
-            if (v_MoveIsQuit == true)
+            if (v_MoveIsQuit)
             {
-                io_Move = new Move(v_MoveIsQuit);
+                io_Move = new Move(eMoveTypes.Quit);
             }
             else
             {
@@ -136,19 +146,26 @@ namespace Ex02_Othelo
         public int Row
           {
                get { return m_Row; }
-               set { m_Row = value; }
           }
 
           public int Col
           {
                get { return m_Col; }
-               set { m_Col = value; }
           }
+       public int MaxWidth
+       {
+            set { s_Width = value; } 
+       }
 
-          public bool IsQuitMove()
-        {
-            return m_Quite; 
-        }
+       public int MaxHeight
+       {
+            set { s_Height = value; }
+       }
+
+       public bool IsQuitMove()
+       {
+            return r_MoveType == eMoveTypes.Quit;
+       }
 
     }
 }
