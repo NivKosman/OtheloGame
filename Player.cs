@@ -19,19 +19,18 @@ namespace Ex02_Othelo
                set { m_PlayerName = value; }
           }
 
-          public enum eSymbol
+          public enum eColor
           {
                White,
                Black,
-               Empty,
           }
 
-          private eSymbol m_Symbol;
+          private readonly eColor r_Color;
 
-          public Player(ref bool i_IsComputer, ref eSymbol i_eSymbol)
+          public Player(ref bool i_IsComputer, ref eColor i_Color)
           {
                v_IsComputer = i_IsComputer;
-               m_Symbol = i_eSymbol;
+               r_Color = i_Color;
                if(v_IsComputer)
                {
                     m_PlayerName = "Computer";

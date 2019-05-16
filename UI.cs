@@ -65,15 +65,16 @@ namespace Ex02_Othelo
                Environment.Exit(1);
           }
 
-          public static void GetBoardSizeString()
+          public static int GetBoardSize()
           {
-               int SizeNum;
+               int sizeNum;
                string sizeString;
 
                Console.WriteLine("Please Choose the Size of the Matrix (6 OR 8) and then press enter");
-               sizeString = Console.ReadLine();              
-               Int32.TryParse(sizeString, out SizeNum);
-               //TODO->intialing SizeNum to board
+               sizeString = Console.ReadLine();
+               Int32.TryParse(sizeString, out sizeNum);
+
+               return sizeNum;
           }
 
           public static string GetNextMoveString()
