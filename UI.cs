@@ -8,6 +8,47 @@ namespace Ex02_Othelo
 {
      public class UI
      {
+          public enum eModeGame
+          {
+               PlayerVsPlayer,
+               PlayerVsComputer,
+          }
+
+          public static bool AskingUserPlayingAgainOrEnding()
+          {
+               int check;
+               bool v_PlayingAgain = true;
+
+               Console.WriteLine("if you would like to play again please press 1");
+               Console.WriteLine("but if you want to end press any key else");
+               Int32.TryParse(Console.ReadLine(), out check);
+               if (check != 1)
+               {
+                    v_PlayingAgain = false;
+               }
+
+               return v_PlayingAgain;
+          }
+
+          public static eModeGame GetModeGameFromUser()
+          {
+               int mode;
+
+               Console.WriteLine("if you want to play against other player please press 0");
+               Console.WriteLine("but if you want to play against the computer please press 1");
+               Int32.TryParse(Console.ReadLine(), out mode);
+               if (mode == 0)
+               {
+
+                    return eModeGame.PlayerVsPlayer;
+               }
+               else
+               {
+
+                    return eModeGame.PlayerVsComputer;
+               }
+          }
+
           public static void ShowInvalidMoveMessage()
           {
                Console.WriteLine("Please choose valid cell");
@@ -26,11 +67,21 @@ namespace Ex02_Othelo
 
           public static void GetBoardSizeString()
           {
-               Console.WriteLine("Please Choose the Size of the Matrix (6 OR 8) and then press enter");
-               string sizeString = Console.ReadLine();
                int SizeNum;
+               string sizeString;
+
+               Console.WriteLine("Please Choose the Size of the Matrix (6 OR 8) and then press enter");
+               sizeString = Console.ReadLine();              
                Int32.TryParse(sizeString, out SizeNum);
                //TODO->intialing SizeNum to board
+          }
+
+          public static string GetNextMoveString()
+          {
+               Console.WriteLine("Please enter a Move");
+               string move = Console.ReadLine();
+
+               return move;
           }
 
           public static string GetNameFromUser()
@@ -40,6 +91,7 @@ namespace Ex02_Othelo
 
                return name;
           }
+
 
           public static void ShowGameWinMessage(Player i_Player1, Player i_Player2)
           {
