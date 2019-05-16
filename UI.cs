@@ -13,7 +13,45 @@ namespace Ex02_Othelo
                PlayerVsPlayer,
                PlayerVsComputer,
           }
+          private static void PrintLineOfCharEqual(int i_BoardHeight)
+          {
+               Console.Write("   ");
+               for (int i = 0; i < (i_BoardHeight * 4) + 1; i++)
+               {
+                    Console.Write('=');
+               }
+          }
+          public static void ShowBoard(Board i_Board)
+          {
+               int i, j;
 
+               Console.Write("    ");
+               for (i = 0; i < i_Board.Height; i++)
+               {
+                    Console.Write(" {0}  ", (char)('A' + i));
+               }
+
+               Console.Write(Environment.NewLine);
+               PrintLineOfCharEqual(i_Board.Height);
+               Console.Write(Environment.NewLine);
+               for (i = 0; i < i_Board.Height; i++)
+               {
+
+                    Console.Write(" {0} |", (char)('1' + i));
+                    for (j = 0; j < i_Board.Width; j++)
+                    {
+                         Console.Write(" {0} |", i_Board.Matrix[i, j]);
+                    }
+
+                    Console.Write(Environment.NewLine);
+                    PrintLineOfCharEqual(i_Board.Height);
+                    Console.Write(Environment.NewLine);
+               }
+          }
+          public static void ClearScreen()
+          {
+               Ex02.ConsoleUtils.Screen.Clear();
+          }
           public static bool AskingUserPlayingAgainOrEnding()
           {
                int check;
@@ -35,7 +73,7 @@ namespace Ex02_Othelo
                int mode;
 
                Console.WriteLine("if you want to play against other player please press 0");
-               Console.WriteLine("but if you want to play against the computer please press 1");
+               Console.WriteLine("but if you want to play against the computer please press any other key");
                Int32.TryParse(Console.ReadLine(), out mode);
                if (mode == 0)
                {

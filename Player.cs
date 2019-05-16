@@ -40,7 +40,7 @@ namespace Ex02_Othelo
           public int Score
           {
                get { return m_Score; }
-               set { m_Score++; }
+               set { m_Score = value; }
           }
 
 

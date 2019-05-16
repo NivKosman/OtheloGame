@@ -22,8 +22,9 @@ namespace Ex02_Othelo
                Move.TryParse(input, out move_test);
                Console.WriteLine("Move is Quit: {0}", move_test.IsQuitMove());
                Console.WriteLine(move_test.Col);
-               Console.WriteLine(move_test.Row);
+               Console.WriteLine(move_test.Row);      
 
-          }
+          
+          }          
      }
 }
