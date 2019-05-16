@@ -33,6 +33,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Move.cs" />
     <Compile Include="UI.cs" />
+    <Compile Include="InputValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

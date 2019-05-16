@@ -12,6 +12,7 @@ namespace Ex02_Othelo
           {
                PlayerVsPlayer,
                PlayerVsComputer,
+               Invalid
           }
 
           public static bool AskingUserPlayingAgainOrEnding()
