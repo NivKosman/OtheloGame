@@ -152,6 +152,16 @@ namespace Ex02_Othelo
           {
                get { return m_Col; }
           }
+          
+          public int MaxWidth
+          {
+               set { s_Width = value; } 
+          }
+
+          public int MaxHeight
+          {
+            set { s_Height = value; }
+          }
 
           public bool IsQuitMove()
           {
