@@ -6,14 +6,12 @@ namespace Ex02_Othelo
           //TODO-> insert values to witdh and height acrroding to board size 
           private static int s_Width;
           private static int s_Height;
-
           private int m_Row;
           private int m_Col;
           bool m_Quite;
           const int k_LengthOfMoveStr = 2;
           const int k_LengthOfQuitStr = 1;
-
-
+     
           public Move(int i_Row, int i_Col)
           {
                m_Row = i_Row;
