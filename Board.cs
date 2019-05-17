@@ -30,6 +30,26 @@ namespace Ex02_Othelo
                     }
                }
           }
+          public List<Move> CreateValidMovesToPlayer(Player i_Player)
+          {
+               List<Move> validMoves = new List<Move>();
+               Move move;
+               int i, j;
+
+               for (i = 0; i < r_Height; i++)
+               {
+                    for (j = 0; j < r_Width; j++)
+                    {
+                         move = new Move(i, j);
+                         if (moveIsLegal(move))
+                         {
+                              validMoves.Add(move);
+                         }
+                    }
+               }
+
+               return validMoves;
+          }
 
           public char[,] Matrix
           {

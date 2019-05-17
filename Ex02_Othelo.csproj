@@ -29,15 +29,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Board.cs" />
+    <Compile Include="Engine.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Move.cs" />
     <Compile Include="UI.cs" />
-
     <Compile Include="IOhandler.cs" />
-
     <Compile Include="InputValidator.cs" />
-
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

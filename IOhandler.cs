@@ -6,9 +6,9 @@ namespace Ex02_Othelo
         public IOhandler()
         {
         }
-        public Move GetNextMove()
+        public Move GetNextMove(Player i_Player)
         {
-            return new Move(true); 
+            return new Move(1,1); //Not really 
         }
 
         public string GetPlayerName()
@@ -30,11 +30,19 @@ namespace Ex02_Othelo
         { 
         }
 
-        public void ShowGameResultMessage()
+        public void ShowNoAvailbleMovesForPlayer()
+         {
+         }
+
+          public void ShowGameResultMessage()
         { 
         }
 
-        public void ShowGoodByeMessage()
+          public void ShowIllegalMoveMessage()
+          {
+          }
+
+          public void ShowGoodByeMessage()
         { 
         }
     }
