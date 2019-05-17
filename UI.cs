@@ -15,39 +15,26 @@ namespace Ex02_Othelo
                Invalid
           }
 
-          public static bool AskingUserPlayingAgainOrEnding()
+          public static string AskingUserPlayingAgainOrEnding()
           {
-               int check;
-               bool v_PlayingAgain = true;
+               string userChoise;
 
                Console.WriteLine("if you would like to play again please press 1");
-               Console.WriteLine("but if you want to end press any key else");
-               Int32.TryParse(Console.ReadLine(), out check);
-               if (check != 1)
-               {
-                    v_PlayingAgain = false;
-               }
+               Console.WriteLine("but if you want to end press 2");
+               userChoise = Console.ReadLine();
 
-               return v_PlayingAgain;
+               return userChoise;
           }
 
-          public static eModeGame GetModeGameFromUser()
+          public static string GetModeGameFromUser()
           {
-               int mode;
+               string userChoise;
 
                Console.WriteLine("if you want to play against other player please press 0");
                Console.WriteLine("but if you want to play against the computer please press 1");
-               Int32.TryParse(Console.ReadLine(), out mode);
-               if (mode == 0)
-               {
+               userChoise = Console.ReadLine();
 
-                    return eModeGame.PlayerVsPlayer;
-               }
-               else
-               {
-
-                    return eModeGame.PlayerVsComputer;
-               }
+               return userChoise;
           }
 
           public static void ShowInvalidMoveMessage()
@@ -66,16 +53,14 @@ namespace Ex02_Othelo
                Environment.Exit(1);
           }
 
-          public static int GetBoardSize()
+          public static string GetBoardSize()
           {
-               int sizeNum;
                string sizeString;
 
                Console.WriteLine("Please Choose the Size of the Matrix (6 OR 8) and then press enter");
                sizeString = Console.ReadLine();
-               Int32.TryParse(sizeString, out sizeNum);
 
-               return sizeNum;
+               return sizeString;
           }
 
           public static string GetNextMoveString()
@@ -112,8 +97,5 @@ namespace Ex02_Othelo
                     Console.WriteLine("We Have a Tie");
                }
           }
-
-
-
      }
 }
