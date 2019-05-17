@@ -15,6 +15,16 @@ namespace Ex02_Othelo
                Invalid
           }
 
+          public static void ClearScreen()
+          {
+               Ex02.ConsoleUtils.Screen.Clear();
+          }
+
+          public static void ShowBoardString(StringBuilder i_BoardString)
+          {
+               Console.Write(i_BoardString);
+          }
+
           public static string AskingUserPlayingAgainOrEnding()
           {
                string userChoise;
