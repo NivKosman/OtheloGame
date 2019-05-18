@@ -13,9 +13,9 @@ namespace Ex02_Othelo
           private Player m_Player1;
           private Player m_Player2;
 
-          public Engine(IOhandler i_IO, Board io_Board, Player i_Player1, Player i_Player2)
+          public Engine(Board io_Board, Player i_Player1, Player i_Player2)
           {
-               m_IO = i_IO;
+               m_IO = new IOhandler();
                m_Board = io_Board;
                m_Player1 = i_Player1;
                m_Player2 = i_Player2;
@@ -30,18 +30,17 @@ namespace Ex02_Othelo
                bool currPlayerHasMoves = true;
                bool nextPlayerHasMoves = true;
                Move nextMove = m_IO.GetNextMove(Players[0]);
-               bool nextMoveIsQuite = nextMove.IsQuitMove();
-
-               while (!nextMoveIsQuite && (m_Board.CreateValidMovesToPlayer(Players[0]).Count > 0 ||
-                    m_Board.CreateValidMovesToPlayer(Players[1]).Count > 0))
+               bool nextMoveIsQuit = nextMove.IsQuitMove();
+//m_Board.CreateValidMovesToPlayer(Players[0]).Count > 0
+               while (!nextMoveIsQuit && (currPlayerHasMoves || nextPlayerHasMoves))
                {
                     bool nextMoveIsLegal = CheckIfMoveIsLegal(nextMove, Players[0]);
 
                     if (nextMoveIsLegal)
                     {
                          m_Board.PlacePiece(nextMove.Row, nextMove.Col, Players[0].Color);
-                         currPlayerHasMoves = m_Board.CreateValidMovesToPlayer(Players[0]).Count > 0;
-                         nextPlayerHasMoves = m_Board.CreateValidMovesToPlayer(Players[1]).Count > 0;
+                         currPlayerHasMoves = PlayerHasAnyValidMoves(Players[0]);
+                         nextPlayerHasMoves = PlayerHasAnyValidMoves(Players[1]);
                          if (nextPlayerHasMoves)
                          {
                               swapPlayers(Players);
@@ -57,18 +56,26 @@ namespace Ex02_Othelo
                     }
 
                     nextMove = m_IO.GetNextMove(Players[0]);
-                    nextMoveIsQuite = nextMove.IsQuitMove();
+                    nextMoveIsQuit = nextMove.IsQuitMove();
                }
 
-               return nextMoveIsQuite;
+               return nextMoveIsQuit;
           }
 
           private bool CheckIfMoveIsLegal(Move i_NextMove, Player i_Player)
           {
                List<Move> validMoves = new List<Move>();
-               validMoves = m_Board.CreateValidMovesToPlayer(i_Player);
+               validMoves = m_Board.GetListOfValidMovesForPlayer(i_Player);
 
                return validMoves.Contains(i_NextMove);
+          }
+          
+          private bool PlayerHasAnyValidMoves(Player i_Player)
+          {
+               List<Move> validMoves = new List<Move>();
+               validMoves = m_Board.GetListOfValidMovesForPlayer(i_Player);
+
+               return validMoves.Count > 0;
           }
 
           private void swapPlayers(Player[] io_Players)
