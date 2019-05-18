@@ -11,7 +11,13 @@ namespace Ex02_Othelo
           private readonly int r_Height;
           private readonly int r_Width;
           private char[,] i_Board;
+          
           private bool moveIsLegal(Move io_move)
+          {
+               //TODO->implementation
+               return true;
+          }
+          private bool moveIsLegal(int i_Column, int i_Row)
           {
                //TODO->implementation
                return true;
@@ -30,7 +36,8 @@ namespace Ex02_Othelo
                     }
                }
           }
-          public List<Move> CreateValidMovesToPlayer(Player i_Player)
+          
+          public List<Move> GetListOfValidMovesForPlayer(Player i_Player)
           {
                List<Move> validMoves = new List<Move>();
                Move move;
@@ -40,9 +47,10 @@ namespace Ex02_Othelo
                {
                     for (j = 0; j < r_Width; j++)
                     {
-                         move = new Move(i, j);
-                         if (moveIsLegal(move))
+                         //move = new Move(i, j);
+                         if (moveIsLegal(i, j))
                          {
+                              move = new Move(i, j);
                               validMoves.Add(move);
                          }
                     }
@@ -80,6 +88,11 @@ namespace Ex02_Othelo
                {
                     this.i_Board[i_Height, i_Width] = 'X';
                }
+          }
+          
+          private bool cellIsEmpty(int i_Height, int i_Width)
+          {
+               return i_Board[i_Height, i_Width] == ' ';
           }
 
 
