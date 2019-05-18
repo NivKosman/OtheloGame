@@ -133,12 +133,12 @@ namespace Ex02_Othelo
             m_Board[i_Height, i_Width] = (char)i_Color;
         }
 
-        public StringBuilder ToString(Board i_Board)
+        public StringBuilder ToString()
         {
             int i, j;
             StringBuilder boardToString = new StringBuilder();
             boardToString.Append("    ");
-            for (i = 0; i < i_Board.Height; i++)
+            for (i = 0; i < Height; i++)
             {
 
                 boardToString.Append(" ");
@@ -147,22 +147,22 @@ namespace Ex02_Othelo
             }
 
             boardToString.Append(Environment.NewLine);
-            addingEqualChars(boardToString, i_Board.Height);
+            addingEqualChars(boardToString, Height);
             boardToString.Append(Environment.NewLine);
-            for (i = 0; i < i_Board.Height; i++)
+            for (i = 0; i < Height; i++)
             {
                 boardToString.Append(" ");
                 boardToString.Append((char)('1' + i));
                 boardToString.Append(" |");
-                for (j = 0; j < i_Board.Width; j++)
+                for (j = 0; j < Width; j++)
                 {
                     boardToString.Append(" ");
-                    boardToString.Append(i_Board.Matrix[i, j]);
+                    boardToString.Append(Matrix[i, j]);
                     boardToString.Append(" |");
                 }
 
                 boardToString.Append(Environment.NewLine);
-                addingEqualChars(boardToString, i_Board.Height);
+                addingEqualChars(boardToString, Height);
                 boardToString.Append(Environment.NewLine);
             }
 
