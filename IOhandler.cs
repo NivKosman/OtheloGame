@@ -115,29 +115,8 @@ namespace Ex02_Othelo
             {
                 m_UIhandler.ShowGameResultTie();
             }
- 
 
         }
-
-
-
-            //public static void ShowGameWinMessage(Player i_Player1, Player i_Player2)
-            //{
-            //    Console.WriteLine("{0} score:{1}", i_Player1.PlayerName, i_Player1.Score);
-            //    Console.WriteLine("{0} score:{1}", i_Player2.PlayerName, i_Player1.Score);
-            //    if (i_Player1.Score > i_Player2.Score)
-            //    {
-            //        Console.WriteLine("Congratulations to {0} for winning the game", i_Player1.PlayerName);
-            //    }
-            //    else if (i_Player1.Score < i_Player2.Score)
-            //    {
-            //        Console.WriteLine("Congratulations to {0} for winning the game", i_Player2.PlayerName);
-            //    }
-            //    else
-            //    {
-            //        Console.WriteLine("We Have a Tie");
-            //    }
-            //}
 
             public void ShowIllegalMoveMessage()
         {
