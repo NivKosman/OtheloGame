@@ -12,15 +12,137 @@ namespace Ex02_Othelo
         private readonly int r_Width;
         private char[,] m_Board;
 
-        private bool moveIsLegal(Move io_move)
+          private bool moveIsLegal(Move io_move)
+          {
+               //TODO->implementation
+               return true;
+          }
+
+          struct Directions
+          {
+             public int m_DirRow;
+             public int m_DirCol;
+          }
+       
+        private bool checkDirection(int i_Row, int i_Column, Player.eColor i_Color, Directions i_Direction
+             ,out int i_RowToFill,out int i_ColToFill)
+          {
+               i_RowToFill = -1;
+               i_ColToFill = -1;
+               bool isDirLegal = true;
+               Player.eColor colorToCheck;
+
+               if (i_Color == Player.eColor.White)
+               {
+                    colorToCheck = Player.eColor.Black;
+               }
+               else
+               {
+                    colorToCheck = Player.eColor.White;
+               }
+
+               i_Row += i_Direction.m_DirRow;
+               i_Column += i_Direction.m_DirCol;
+               if (i_Row < 0 || i_Row >= r_Height || i_Column < 0 || i_Column >= r_Width)
+               {
+                    isDirLegal = false;
+               }
+               else
+               {
+                    if (m_Board[i_Row, i_Column] == (char)i_Color || m_Board[i_Row, i_Column] == ' ')
+                    {
+                         isDirLegal = false;
+                    }
+                    else
+                    { 
+                         while (i_Row >= 0 && i_Row < r_Height && i_Column >= 0 && i_Column < r_Width)
+                         {            
+                              if (m_Board[i_Row, i_Column] == ' ')
+                              {
+                                   isDirLegal = false;
+
+                                   return isDirLegal;
+                              }
+                              else if (m_Board[i_Row, i_Column] == (char)colorToCheck)
+                              {
+                                   i_Row += i_Direction.m_DirRow;
+                                   i_Column += i_Direction.m_DirCol;
+                              }
+                              else
+                              {
+                                   i_RowToFill = i_Row;
+                                   i_ColToFill = i_Column;
+                                   return isDirLegal;
+                              }
+                         }
+
+                         isDirLegal = false;
+                    }                        
+               }
+
+               return isDirLegal;
+          }    
+
+        private void initDirection(Directions [] i_Direstions)
+          {
+               i_Direstions[0].m_DirRow = -1;
+               i_Direstions[0].m_DirCol = 0;
+               i_Direstions[1].m_DirRow = 1;
+               i_Direstions[1].m_DirCol = 0;
+               i_Direstions[2].m_DirRow = 0;
+               i_Direstions[2].m_DirCol = 1;
+               i_Direstions[3].m_DirRow = 0;
+               i_Direstions[3].m_DirCol = -1;
+               i_Direstions[4].m_DirRow = -1;
+               i_Direstions[4].m_DirCol = -1;
+               i_Direstions[5].m_DirRow = -1;
+               i_Direstions[5].m_DirCol = 1;
+               i_Direstions[6].m_DirRow = 1;
+               i_Direstions[6].m_DirCol = -1;
+               i_Direstions[7].m_DirRow = 1;
+               i_Direstions[7].m_DirCol = 1;
+          }
+
+        public bool MoveIsLegal(int i_Row, int i_Column,Player.eColor i_Color )
         {
-            //TODO->implementation
-            return true;
+               int rowToFill;
+               int colToFill;
+               bool v_MoveIsLegal = true;
+               bool atLeastOneDirIsLegal = false;
+               Directions[] allDirections = new Directions[8];
+
+               initDirection(allDirections);
+               if (m_Board[i_Row, i_Column] != ' ')
+               {
+                    v_MoveIsLegal = false;
+               }
+               else
+               {
+                    for(int i=0 ; i<=8 ; i++)
+                    {
+                         if(checkDirection(i_Row, i_Column, i_Color, allDirections[i],out rowToFill,out colToFill))
+                         {
+                              fillsCells(i_Row, i_Column, allDirections[i], i_Color, rowToFill, colToFill);
+                              atLeastOneDirIsLegal = true;
+                         }
+                    }
+               }
+
+            return v_MoveIsLegal && atLeastOneDirIsLegal;
         }
-        private bool moveIsLegal(int i_Column, int i_Row)
+
+        private void fillsCells(int i_FromRowToFill,int i_FromColToFill,Directions i_Direction, Player.eColor i_Color,
+             int i_ToRowToFill,int i_ToColToFill)
         {
-            //TODO->implementation
-            return true;
+               int row = i_FromRowToFill;
+               int col = i_FromColToFill;
+
+               while((row != i_ToRowToFill) && (col != i_ToColToFill))
+               {
+                    m_Board[row, col] = (char)i_Color;
+                    row += i_Direction.m_DirRow;
+                    col += i_Direction.m_DirCol;
+               }
         }
 
         private bool cellIsEmpty(int i_Height, int i_Width)
@@ -45,7 +167,6 @@ namespace Ex02_Othelo
             }
 
             return counterColor;
-
         }
 
         public Board(int i_height, int i_width)
