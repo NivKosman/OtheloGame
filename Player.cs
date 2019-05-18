@@ -8,10 +8,12 @@ namespace Ex02_Othelo
 {
      public class Player
      {
-          List<Move> m_ValidMoves; // useless here -> engine should hold it
           private int m_Score = 0;
           private readonly ePlayerType r_PlayerType;
+          private readonly eColor r_Color;
           private string m_PlayerName;
+
+         
 
           public string PlayerName
           {
@@ -32,8 +34,15 @@ namespace Ex02_Othelo
 
           }
 
-          private readonly eColor r_Color;
+          public eColor Color
+          {
+               get { return r_Color; }
+          }
 
+          public Player()
+          {
+
+          }
           public Player(ref ePlayerType i_PlayerType, ref eColor i_Color)
           {
                r_PlayerType = i_PlayerType;
@@ -55,8 +64,5 @@ namespace Ex02_Othelo
           {
                m_Score = 0; 
           }
-
-
-
      }
 }

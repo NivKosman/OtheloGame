@@ -11,11 +11,17 @@ namespace Ex02_Othelo
           private readonly int r_Height;
           private readonly int r_Width;
           private char[,] i_Board;
+          
           private bool moveIsLegal(Move io_move)
           {
                //TODO->implementation
                return true;
           }
+          private bool moveIsLegal(int i_Column, int i_Row)
+          {
+               //TODO->implementation
+               return true;
+            
           public int AmountOfColorInBoard(ref Player.eColor i_Color)
           {
                char colorToCheck;
@@ -42,6 +48,7 @@ namespace Ex02_Othelo
                }
 
                return counterColor;
+
           }
 
           public Board(int i_height, int i_width)
@@ -56,6 +63,28 @@ namespace Ex02_Othelo
                          this.i_Board[i, j] = ' ';
                     }
                }
+          }
+          
+          public List<Move> GetListOfValidMovesForPlayer(Player i_Player)
+          {
+               List<Move> validMoves = new List<Move>();
+               Move move;
+               int i, j;
+
+               for (i = 0; i < r_Height; i++)
+               {
+                    for (j = 0; j < r_Width; j++)
+                    {
+                         //move = new Move(i, j);
+                         if (moveIsLegal(i, j))
+                         {
+                              move = new Move(i, j);
+                              validMoves.Add(move);
+                         }
+                    }
+               }
+
+               return validMoves;
           }
 
           public int AmountOfColorInBoard(ref Player.eColor i_Color)
@@ -115,6 +144,11 @@ namespace Ex02_Othelo
                {
                     this.i_Board[i_Height, i_Width] = 'X';
                }
+          }
+          
+          private bool cellIsEmpty(int i_Height, int i_Width)
+          {
+               return i_Board[i_Height, i_Width] == ' ';
           }
 
 
