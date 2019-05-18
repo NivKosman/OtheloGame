@@ -4,14 +4,21 @@ namespace Ex02_Othelo
 {
     public class IOhandler
     {
-          public  void ClearScreen()
+        public  void ClearScreen()
           {
                UI.ClearScreen();
           }
 
-        public IOhandler()
-        {
-        }
+          public IOhandler()
+          {
+
+          }
+
+          public int GetSizeBoard()
+          {
+               return 8;
+          }
+
         public Move GetNextMove(Player i_Player)
         {
             return new Move(1,1); //Not really 

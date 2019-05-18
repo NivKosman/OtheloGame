@@ -63,7 +63,7 @@ namespace Ex02_Othelo
 
           public void InitScore()
           {
-               m_Score = 0; 
+               m_Score = 2; 
           }
      }
 }
