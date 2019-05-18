@@ -8,10 +8,10 @@ namespace Ex02_Othelo
 {
      public class Engine
      {
-          private IOhandler m_IO;
-          private Board m_Board;
-          private Player m_Player1;
-          private Player m_Player2;
+          readonly IOhandler m_IO;
+          readonly Board m_Board;
+          readonly Player m_Player1;
+          readonly Player m_Player2;
 
           public Engine(Board io_Board, Player i_Player1, Player i_Player2)
           {
@@ -31,7 +31,7 @@ namespace Ex02_Othelo
                bool nextPlayerHasMoves = true;
                Move nextMove = m_IO.GetNextMove(Players[0]);
                bool nextMoveIsQuit = nextMove.IsQuitMove();
-//m_Board.CreateValidMovesToPlayer(Players[0]).Count > 0
+
                while (!nextMoveIsQuit && (currPlayerHasMoves || nextPlayerHasMoves))
                {
                     bool nextMoveIsLegal = CheckIfMoveIsLegal(nextMove, Players[0]);

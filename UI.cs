@@ -6,147 +6,148 @@ using System.Threading.Tasks;
 
 namespace Ex02_Othelo
 {
-     public class UI
-     {
-          public enum eModeGame
-          {
-               PlayerVsPlayer,
-               PlayerVsComputer,
-               Invalid
-          }
-          private static void PrintLineOfCharEqual(int i_BoardHeight)
-          {
-               Console.Write("   ");
-               for (int i = 0; i < (i_BoardHeight * 4) + 1; i++)
-               {
-                    Console.Write('=');
-               }
-          }
-          public static void ShowBoard(Board i_Board)
-          {
-               int i, j;
+    public class UI
+    {
 
-               Console.Write("    ");
-               for (i = 0; i < i_Board.Height; i++)
-               {
-                    Console.Write(" {0}  ", (char)('A' + i));
-               }
-               Console.Write(Environment.NewLine);
-               PrintLineOfCharEqual(i_Board.Height);
-               Console.Write(Environment.NewLine);
-               for (i = 0; i < i_Board.Height; i++)
-               {
+        public UI()
+        { 
+        }
 
-                    Console.Write(" {0} |", (char)('1' + i));
-                    for (j = 0; j < i_Board.Width; j++)
-                    {
-                         Console.Write(" {0} |", i_Board.Matrix[i, j]);
-                    }
+        public enum eModeGame
+        {
+            PlayerVsPlayer,
+            PlayerVsComputer,
+            Invalid
+        }
 
-                    Console.Write(Environment.NewLine);
-                    PrintLineOfCharEqual(i_Board.Height);
-                    Console.Write(Environment.NewLine);
-               }
-          }
-          public static void ClearScreen()
-          {
-               Ex02.ConsoleUtils.Screen.Clear();
-          }
-          public static bool AskingUserPlayingAgainOrEnding()
+        private static void PrintLineOfCharEqual(int i_BoardHeight)
+        {
+            Console.Write("   ");
+            for (int i = 0; i < (i_BoardHeight * 4) + 1; i++)
+            {
+                Console.Write('=');
+            }
+        }
+        public void ShowBoard(Board i_Board)
+        {
+            int i, j;
 
-          public static void ClearScreen()
-          {
-               Ex02.ConsoleUtils.Screen.Clear();
-          }
+            Console.Write("    ");
+            for (i = 0; i < i_Board.Height; i++)
+            {
+                Console.Write(" {0}  ", (char)('A' + i));
+            }
+            Console.Write(Environment.NewLine);
+            PrintLineOfCharEqual(i_Board.Height);
+            Console.Write(Environment.NewLine);
+            for (i = 0; i < i_Board.Height; i++)
+            {
 
-          public static void ShowBoardString(StringBuilder i_BoardString)
-          {
-               Console.Write(i_BoardString);
-          }
+                Console.Write(" {0} |", (char)('1' + i));
+                for (j = 0; j < i_Board.Width; j++)
+                {
+                    Console.Write(" {0} |", i_Board.Matrix[i, j]);
+                }
 
-          public static string AskingUserPlayingAgainOrEnding()
-          {
-               string userChoise;
+                Console.Write(Environment.NewLine);
+                PrintLineOfCharEqual(i_Board.Height);
+                Console.Write(Environment.NewLine);
+            }
+        }
+        public static void ClearScreen()
+        {
+            //Ex02.ConsoleUtils.Screen.Clear();
+        }
 
-               Console.WriteLine("if you would like to play again please press 1");
-               Console.WriteLine("but if you want to end press 2");
-               userChoise = Console.ReadLine();
+        public void ShowBoardString(StringBuilder i_BoardString)
+        {
+            Console.Write(i_BoardString);
+        }
 
-               return userChoise;
-          }
+        public static string AskingUserPlayingAgainOrEnding()
+        {
+            string userChoise;
 
-          public static string GetModeGameFromUser()
-          {
-               string userChoise;
+            Console.WriteLine("if you would like to play again please press 1");
+            Console.WriteLine("but if you want to end press 2");
+            userChoise = Console.ReadLine();
 
-               Console.WriteLine("if you want to play against other player please press 0");
-               Console.WriteLine("but if you want to play against the computer please press any other key");
-               Int32.TryParse(Console.ReadLine(), out mode);
-               if (mode == 0)
-               {
+            return userChoise;
+        }
 
-               return userChoise;
-          }
+        public static string GetModeGameFromUser()
+        {
+            string userChoise;
 
-          public static void ShowInvalidMoveMessage()
-          {
-               Console.WriteLine("Please choose valid cell");
-          }
+            Console.WriteLine("if you want to play against other player please press 0");
+            Console.WriteLine("but if you want to play against the computer please press any other key");
+            Int32.TryParse(Console.ReadLine(), out mode);
+            if (mode == 0)
+            {
 
-          public static void ShowNoAvailableMovesMessage()
-          {
-               Console.WriteLine("Sorry but you dont have valid moves,therefore we turn to the opponent");
-          }
+                return userChoise;
+            }
+        }
 
-          public static void ShowGameEnded()
-          {
-               Console.WriteLine("thank you for playing our game");
-               Environment.Exit(1);
-          }
+        public static void ShowInvalidMoveMessage()
+        {
+            Console.WriteLine("Please choose valid cell");
+        }
 
-          public static string GetBoardSize()
-          {
-               string sizeString;
+        public static void ShowNoAvailableMovesMessage()
+        { 
+            Console.WriteLine("Sorry but you dont have valid moves,therefore we turn to the opponent");
+        }
 
-               Console.WriteLine("Please Choose the Size of the Matrix (6 OR 8) and then press enter");
-               sizeString = Console.ReadLine();
+        public static void ShowGameEnded()
+        {
+            Console.WriteLine("thank you for playing our game");
+            Environment.Exit(1);
+        }
 
-               return sizeString;
-          }
+        public static string GetBoardSize()
+        {
+            string sizeString;
 
-          public static string GetNextMoveString()
-          {
-               Console.WriteLine("Please enter a Move");
-               string move = Console.ReadLine();
+            Console.WriteLine("Please Choose the Size of the Matrix (6 OR 8) and then press enter");
+            sizeString = Console.ReadLine();
 
-               return move;
-          }
+            return sizeString;
 
-          public static string GetNameFromUser()
-          {
-               Console.WriteLine("Hello to Othelo game,please enter your name(and press enter)");
-               string name = Console.ReadLine();
+        }
 
-               return name;
-          }
+        public static string GetNextMoveString()
+        {
+            Console.WriteLine("Please enter a Move");
+            string move = Console.ReadLine();
 
+            return move;
+        }
 
-          public static void ShowGameWinMessage(Player i_Player1, Player i_Player2)
-          {
-               Console.WriteLine("{0} score:{1}",i_Player1.PlayerName, i_Player1.Score);
-               Console.WriteLine("{0} score:{1}", i_Player2.PlayerName, i_Player1.Score);
-               if (i_Player1.Score > i_Player2.Score)
-               {
-                    Console.WriteLine("Congratulations to {0} for winning the game", i_Player1.PlayerName);
-               }
-               else if (i_Player1.Score < i_Player2.Score)
-               {
-                    Console.WriteLine("Congratulations to {0} for winning the game", i_Player2.PlayerName);
-               }
-               else
-               {
-                    Console.WriteLine("We Have a Tie");
-               }
-          }
+        public static string GetNameFromUser()
+        {
+            Console.WriteLine("Hello to Othelo game,please enter your name(and press enter)");
+            string name = Console.ReadLine();
+
+            return name;
+        }
+
+        public static void ShowGameWinMessage(Player i_Player1, Player i_Player2)
+        {
+            Console.WriteLine("{0} score:{1}", i_Player1.PlayerName, i_Player1.Score);
+            Console.WriteLine("{0} score:{1}", i_Player2.PlayerName, i_Player1.Score);
+            if (i_Player1.Score > i_Player2.Score)
+            {
+                Console.WriteLine("Congratulations to {0} for winning the game", i_Player1.PlayerName);
+            }
+            else if (i_Player1.Score < i_Player2.Score)
+            {
+                Console.WriteLine("Congratulations to {0} for winning the game", i_Player2.PlayerName);
+            }
+            else
+            {
+                Console.WriteLine("We Have a Tie");
+            }
+        }
      }
 }

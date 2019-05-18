@@ -23,8 +23,9 @@ namespace Ex02_Othelo
 
           public enum eColor
           {
-               White,
-               Black,
+               White = 'O',
+               Black = 'X',
+               Empty = ' '
           }
 
           public enum ePlayerType
