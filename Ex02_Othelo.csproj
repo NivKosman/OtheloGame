@@ -37,6 +37,7 @@
     <Compile Include="UI.cs" />
     <Compile Include="IOhandler.cs" />
     <Compile Include="InputValidator.cs" />
+    <Compile Include="Messages.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

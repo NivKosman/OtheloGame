@@ -3,7 +3,11 @@ namespace Ex02_Othelo
 {
     public class InputValidator
     {
-        //TODO: move numbers to const
+        private const int c_BoardSize1 = 6;
+        private const int c_BoardSize2 = 8;
+        private const int c_SelectOption1 = 1;
+        private const int c_SelectOption2 = 2;
+
         public InputValidator()
         {
         }
@@ -21,7 +25,7 @@ namespace Ex02_Othelo
             v_InputIsNumber = Int32.TryParse(i_BoardSizeString, out o_BoardSize);
             if (v_InputIsNumber)
             {
-                v_InputIsLegalBoardSize = o_BoardSize == 6 || o_BoardSize == 8;
+                v_InputIsLegalBoardSize = o_BoardSize == c_BoardSize1 || o_BoardSize == c_BoardSize2;
             }
             else
             {
@@ -43,7 +47,7 @@ namespace Ex02_Othelo
             v_InputIsNumber = Int32.TryParse(i_GameModeOption, out v_Option);
             if (v_InputIsNumber)
             {
-                v_GameModeIsLegal = v_Option == 1 || v_Option == 2;
+                v_GameModeIsLegal = v_Option == c_SelectOption1 || v_Option == c_SelectOption2;
                 if (v_GameModeIsLegal)
                 {
                     o_GameMode = getModeGameFromNumber(v_Option); 
@@ -58,14 +62,13 @@ namespace Ex02_Othelo
         }
         private UI.eModeGame getModeGameFromNumber(int i_SelectedNumber)
         {
-            if (i_SelectedNumber == 0)
+            if (i_SelectedNumber == c_SelectOption1)
             {
 
                 return UI.eModeGame.PlayerVsPlayer;
             }
             else
             {
-
                 return UI.eModeGame.PlayerVsComputer;
             }
         }
@@ -76,13 +79,28 @@ namespace Ex02_Othelo
             return Move.TryParse(i_MoveString, out o_NextMove); 
         }
 
-        public bool PlayAgainIsValid(string i_PlayAgainString, out int o_Play)
+        public bool PlayAgainIsValid(string i_PlayAgainString, out bool o_PlayAgain)
+        {
+            int userSelectedOption;
+            o_PlayAgain = false;
+
+            bool inputIsValid = CheckPlayAgainIsValid(i_PlayAgainString, out userSelectedOption);
+
+            if (inputIsValid)
+            {
+                o_PlayAgain = userSelectedOption == c_SelectOption1;
+            }
+
+            return inputIsValid;
+        }
+
+        public bool CheckPlayAgainIsValid(string i_PlayAgainString, out int o_Play)
         {
             bool v_PlayAgainSelectionIsValid;
             bool v_InputIsNumber = Int32.TryParse(i_PlayAgainString, out o_Play);
             if (v_InputIsNumber)
             {
-                v_PlayAgainSelectionIsValid = o_Play == 1 || o_Play == 0;
+                v_PlayAgainSelectionIsValid = o_Play == c_SelectOption1 || o_Play == c_SelectOption2;
             }
             else
             {
