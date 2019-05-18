@@ -12,6 +12,7 @@ namespace Ex02_Othelo
           {
                PlayerVsPlayer,
                PlayerVsComputer,
+               Invalid
           }
           private static void PrintLineOfCharEqual(int i_BoardHeight)
           {
@@ -30,7 +31,6 @@ namespace Ex02_Othelo
                {
                     Console.Write(" {0}  ", (char)('A' + i));
                }
-
                Console.Write(Environment.NewLine);
                PrintLineOfCharEqual(i_Board.Height);
                Console.Write(Environment.NewLine);
@@ -53,24 +53,20 @@ namespace Ex02_Othelo
                Ex02.ConsoleUtils.Screen.Clear();
           }
           public static bool AskingUserPlayingAgainOrEnding()
+
           {
-               int check;
-               bool v_PlayingAgain = true;
+               string userChoise;
 
                Console.WriteLine("if you would like to play again please press 1");
-               Console.WriteLine("but if you want to end press any key else");
-               Int32.TryParse(Console.ReadLine(), out check);
-               if (check != 1)
-               {
-                    v_PlayingAgain = false;
-               }
+               Console.WriteLine("but if you want to end press 2");
+               userChoise = Console.ReadLine();
 
-               return v_PlayingAgain;
+               return userChoise;
           }
 
-          public static eModeGame GetModeGameFromUser()
+          public static string GetModeGameFromUser()
           {
-               int mode;
+               string userChoise;
 
                Console.WriteLine("if you want to play against other player please press 0");
                Console.WriteLine("but if you want to play against the computer please press any other key");
@@ -78,13 +74,7 @@ namespace Ex02_Othelo
                if (mode == 0)
                {
 
-                    return eModeGame.PlayerVsPlayer;
-               }
-               else
-               {
-
-                    return eModeGame.PlayerVsComputer;
-               }
+               return userChoise;
           }
 
           public static void ShowInvalidMoveMessage()
@@ -103,16 +93,14 @@ namespace Ex02_Othelo
                Environment.Exit(1);
           }
 
-          public static int GetBoardSize()
+          public static string GetBoardSize()
           {
-               int sizeNum;
                string sizeString;
 
                Console.WriteLine("Please Choose the Size of the Matrix (6 OR 8) and then press enter");
                sizeString = Console.ReadLine();
-               Int32.TryParse(sizeString, out sizeNum);
 
-               return sizeNum;
+               return sizeString;
           }
 
           public static string GetNextMoveString()
@@ -149,8 +137,5 @@ namespace Ex02_Othelo
                     Console.WriteLine("We Have a Tie");
                }
           }
-
-
-
      }
 }
