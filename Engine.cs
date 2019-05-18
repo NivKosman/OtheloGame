@@ -13,12 +13,25 @@ namespace Ex02_Othelo
           readonly Player m_Player1;
           readonly Player m_Player2;
 
-          public Engine(Board io_Board, Player i_Player1, Player i_Player2)
+          public Engine(Player i_Player1, Player i_Player2)
           {
                m_IO = new IOhandler();
-               m_Board = io_Board;
                m_Player1 = i_Player1;
                m_Player2 = i_Player2;
+               m_Board=new Board(m_IO.SizeBoard, m_IO.SizeBoard);
+          }
+          private void updateBoardCauseLegalMove(int i_Row, int i_Col, Player.eColor i_Color)
+          {
+               m_Board.PlacePiece(i_Row, i_Col, i_Color);
+               for(int i=0  ; i<8 ; i++)
+               {
+                    if((m_Board.ArrayDirections[i].m_FinalRow!= -1) &&(m_Board.ArrayDirections[i].m_FinalCol!=-1))
+                    {
+                         m_Board.fillsCells(i_Row, i_Col, m_Board.ArrayDirections[i], i_Color);
+                    }
+               }
+
+               m_Board.ResetArrayDirections();
           }
 
           public bool Run()
@@ -32,13 +45,17 @@ namespace Ex02_Othelo
                Move nextMove = m_IO.GetNextMove(Players[0]);
                bool nextMoveIsQuit = nextMove.IsQuitMove();
 
+               m_Board.initDirection();
+
                while (!nextMoveIsQuit && (currPlayerHasMoves || nextPlayerHasMoves))
                {
                     bool nextMoveIsLegal = CheckIfMoveIsLegal(nextMove, Players[0]);
 
                     if (nextMoveIsLegal)
                     {
-                         m_Board.PlacePiece(nextMove.Row, nextMove.Col, Players[0].Color);
+                         updateBoardCauseLegalMove(nextMove.Row, nextMove.Col,Players[0].Color);
+                         m_IO.ClearScreen();
+                         m_IO.ShowBoard(m_Board);
                          currPlayerHasMoves = PlayerHasAnyValidMoves(Players[0]);
                          nextPlayerHasMoves = PlayerHasAnyValidMoves(Players[1]);
                          if (nextPlayerHasMoves)

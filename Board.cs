@@ -8,22 +8,34 @@ namespace Ex02_Othelo
 {
     public class Board
     {
+        private Directions[] m_Directions=new Directions[8];
         private readonly int r_Height;
         private readonly int r_Width;
         private char[,] m_Board;
 
-          private bool moveIsLegal(Move io_move)
-          {
-               //TODO->implementation
-               return true;
+          public class Directions
+          {    
+               public int m_DirRow;
+               public int m_DirCol;
+               public int m_FinalRow = -1;
+               public int m_FinalCol = -1;
+               
           }
 
-          struct Directions
+          public Directions[] ArrayDirections
           {
-             public int m_DirRow;
-             public int m_DirCol;
+               get { return m_Directions; }
           }
-       
+
+          public void ResetArrayDirections()
+          {
+               for(int i=0;i<8;i++)
+               {
+                    m_Directions[i].m_FinalRow = -1;
+                    m_Directions[i].m_FinalCol = -1;
+               }
+          }
+
         private bool checkDirection(int i_Row, int i_Column, Player.eColor i_Color, Directions i_Direction
              ,out int i_RowToFill,out int i_ColToFill)
           {
@@ -83,61 +95,59 @@ namespace Ex02_Othelo
                return isDirLegal;
           }    
 
-        private void initDirection(Directions [] i_Direstions)
+        public void initDirection()
           {
-               i_Direstions[0].m_DirRow = -1;
-               i_Direstions[0].m_DirCol = 0;
-               i_Direstions[1].m_DirRow = 1;
-               i_Direstions[1].m_DirCol = 0;
-               i_Direstions[2].m_DirRow = 0;
-               i_Direstions[2].m_DirCol = 1;
-               i_Direstions[3].m_DirRow = 0;
-               i_Direstions[3].m_DirCol = -1;
-               i_Direstions[4].m_DirRow = -1;
-               i_Direstions[4].m_DirCol = -1;
-               i_Direstions[5].m_DirRow = -1;
-               i_Direstions[5].m_DirCol = 1;
-               i_Direstions[6].m_DirRow = 1;
-               i_Direstions[6].m_DirCol = -1;
-               i_Direstions[7].m_DirRow = 1;
-               i_Direstions[7].m_DirCol = 1;
+               m_Directions[0].m_DirRow = -1;
+               m_Directions[0].m_DirCol = 0;
+               m_Directions[1].m_DirRow = 1;
+               m_Directions[1].m_DirCol = 0;
+               m_Directions[2].m_DirRow = 0;
+               m_Directions[2].m_DirCol = 1;
+               m_Directions[3].m_DirRow = 0;
+               m_Directions[3].m_DirCol = -1;
+               m_Directions[4].m_DirRow = -1;
+               m_Directions[4].m_DirCol = -1;
+               m_Directions[5].m_DirRow = -1;
+               m_Directions[5].m_DirCol = 1;
+               m_Directions[6].m_DirRow = 1;
+               m_Directions[6].m_DirCol = -1;
+               m_Directions[7].m_DirRow = 1;
+               m_Directions[7].m_DirCol = 1;
           }
 
-        public bool MoveIsLegal(int i_Row, int i_Column,Player.eColor i_Color )
-        {
+          public bool MoveIsLegal(int i_Row, int i_Column, Player.eColor i_Color)
+          {
                int rowToFill;
                int colToFill;
                bool v_MoveIsLegal = true;
                bool atLeastOneDirIsLegal = false;
-               Directions[] allDirections = new Directions[8];
 
-               initDirection(allDirections);
                if (m_Board[i_Row, i_Column] != ' ')
                {
                     v_MoveIsLegal = false;
                }
                else
                {
-                    for(int i=0 ; i<=8 ; i++)
+                    for (int i = 0; i <= 8; i++)
                     {
-                         if(checkDirection(i_Row, i_Column, i_Color, allDirections[i],out rowToFill,out colToFill))
+                         if (checkDirection(i_Row, i_Column, i_Color, m_Directions[i], out rowToFill, out colToFill))
                          {
-                              fillsCells(i_Row, i_Column, allDirections[i], i_Color, rowToFill, colToFill);
+                              m_Directions[i].m_FinalRow = rowToFill;
+                              m_Directions[i].m_FinalCol = colToFill;
                               atLeastOneDirIsLegal = true;
                          }
                     }
                }
 
-            return v_MoveIsLegal && atLeastOneDirIsLegal;
-        }
+               return v_MoveIsLegal && atLeastOneDirIsLegal;
+          }
 
-        private void fillsCells(int i_FromRowToFill,int i_FromColToFill,Directions i_Direction, Player.eColor i_Color,
-             int i_ToRowToFill,int i_ToColToFill)
+        public void fillsCells(int i_FromRowToFill,int i_FromColToFill,Directions i_Direction, Player.eColor i_Color)
         {
                int row = i_FromRowToFill;
                int col = i_FromColToFill;
 
-               while((row != i_ToRowToFill) && (col != i_ToColToFill))
+               while((row != i_Direction.m_FinalRow) && (col != i_Direction.m_FinalCol))
                {
                     m_Board[row, col] = (char)i_Color;
                     row += i_Direction.m_DirRow;
@@ -168,6 +178,10 @@ namespace Ex02_Othelo
 
             return counterColor;
         }
+        public Board()
+          {
+
+          }
 
         public Board(int i_height, int i_width)
         {
@@ -218,10 +232,9 @@ namespace Ex02_Othelo
             {
                 for (j = 0; j < r_Width; j++)
                 {
-                    //move = new Move(i, j);
-                    if (moveIsLegal(i, j))
+                         move = new Move(i, j);
+                    if (MoveIsLegal(move.Row, move.Col, i_Player.Color))
                     {
-                        move = new Move(i, j);
                         validMoves.Add(move);
                     }
                 }
@@ -254,7 +267,7 @@ namespace Ex02_Othelo
             m_Board[i_Height, i_Width] = (char)i_Color;
         }
 
-        public StringBuilder ToString()
+        public StringBuilder ToStringBuilder()
         {
             int i, j;
             StringBuilder boardToString = new StringBuilder();
