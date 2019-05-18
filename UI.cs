@@ -54,6 +54,17 @@ namespace Ex02_Othelo
           }
           public static bool AskingUserPlayingAgainOrEnding()
 
+          public static void ClearScreen()
+          {
+               Ex02.ConsoleUtils.Screen.Clear();
+          }
+
+          public static void ShowBoardString(StringBuilder i_BoardString)
+          {
+               Console.Write(i_BoardString);
+          }
+
+          public static string AskingUserPlayingAgainOrEnding()
           {
                string userChoise;
 

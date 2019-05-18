@@ -58,6 +58,34 @@ namespace Ex02_Othelo
                }
           }
 
+          public int AmountOfColorInBoard(ref Player.eColor i_Color)
+          {
+               char colorToCheck;
+               int counterColor = 0;
+
+               if (i_Color == Player.eColor.White)
+               {
+                    colorToCheck = 'O';
+               }
+               else
+               {
+                    colorToCheck = 'X';
+               }
+
+               for (int i = 0; i < r_Height; i++)
+               {
+                    for (int j = 0; j < r_Width; j++)
+                    {
+                         if (this.i_Board[i, j] == colorToCheck)
+                         {
+                              counterColor++;
+                         }
+                    }
+               }
+
+               return counterColor;
+          }
+
           public char[,] Matrix
           {
                get { return i_Board; }
