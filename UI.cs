@@ -20,142 +20,119 @@ namespace Ex02_Othelo
             Invalid
         }
 
-        public static void ShowGreetingMessage()
+        public void ShowGreetingMessage()
         {
-            Console.WriteLine(GameMessages.Greeting);
+            PrintMessage(GameMessages.Greeting);
         }
 
-        private static void PrintLineOfCharEqual(int i_BoardHeight)
-        {
-            Console.Write("   ");
-            for (int i = 0; i < (i_BoardHeight * 4) + 1; i++)
-            {
-                Console.Write('=');
-            }
-        }
-        public void ShowBoard(Board i_Board)
-        {
-            int i, j;
-
-            Console.Write("    ");
-            for (i = 0; i < i_Board.Height; i++)
-            {
-                Console.Write(" {0}  ", (char)('A' + i));
-            }
-            Console.Write(Environment.NewLine);
-            PrintLineOfCharEqual(i_Board.Height);
-            Console.Write(Environment.NewLine);
-            for (i = 0; i < i_Board.Height; i++)
-            {
-
-                Console.Write(" {0} |", (char)('1' + i));
-                for (j = 0; j < i_Board.Width; j++)
-                {
-                    Console.Write(" {0} |", i_Board.Matrix[i, j]);
-                }
-
-                Console.Write(Environment.NewLine);
-                PrintLineOfCharEqual(i_Board.Height);
-                Console.Write(Environment.NewLine);
-            }
-        }
-        public static void ClearScreen()
+        public void ClearScreen()
         {
             //Ex02.ConsoleUtils.Screen.Clear();
         }
 
-        public void ShowBoardString(StringBuilder i_BoardString)
+        public void PrintBoard(StringBuilder i_BoardString)
         {
             Console.Write(i_BoardString);
         }
 
-        public static string AskingUserPlayingAgainOrEnding()
+        public string GetResponseForPlayAgainMessage() //AskingUserPlayingAgainOrEnding()
         {
-            string userChoise;
+            PrintMessage(GameMessages.PlayAgain);
 
-            Console.WriteLine("if you would like to play again please press 1");
-            Console.WriteLine("but if you want to end press 2");
-            userChoise = Console.ReadLine();
-
-            return userChoise;
+            return GetInput();
         }
 
-        public static string GetModeGameFromUser()
+        public void PrintMessage(string i_MessageToPrint)
         {
-            string userChoise;
-
-            Console.WriteLine("if you want to play against other player please press 0");
-            Console.WriteLine("but if you want to play against the computer please press any other key");
-            Int32.TryParse(Console.ReadLine(), out mode);
-            if (mode == 0)
-            {
-
-                return userChoise;
-            }
-            return "0";
+            Console.WriteLine(i_MessageToPrint); 
         }
 
-        public static void ShowInvalidMoveMessage()
+        public void PrintMessageWithParam(string i_MessageToPrint, string i_Parameter)
         {
-            Console.WriteLine("Please choose valid cell");
+            Console.WriteLine(i_MessageToPrint, i_Parameter);
         }
 
-        public static void ShowNoAvailableMovesMessage()
-        { 
-            Console.WriteLine("Sorry but you dont have valid moves,therefore we turn to the opponent");
+        public void PrintMessageWith2Param(string i_MessageToPrint, string i_Parameter1, string i_Parameter2)
+        {
+            Console.WriteLine(i_MessageToPrint, i_Parameter1, i_Parameter2);
         }
 
-        public static void ShowGameEnded()
+        public string GetInput()
         {
-            Console.WriteLine("thank you for playing our game");
-            Environment.Exit(1);
+            return GetInput(); 
         }
 
-        public static string GetBoardSize()
+        public string GetModeGameFromUser()
         {
-            string sizeString;
+            PrintMessage(GameMessages.GetEnemyOption);
 
-            Console.WriteLine("Please Choose the Size of the Matrix (6 OR 8) and then press enter");
-            sizeString = Console.ReadLine();
-
-            return sizeString;
-
+            return GetInput();
         }
 
-        public static string GetNextMoveString()
+        public void ShowInvalidMoveMessage()
         {
-            Console.WriteLine("Please enter a Move");
-            string move = Console.ReadLine();
-
-            return move;
+            PrintMessage(GameMessages.InvalidMoveEntered);
         }
 
-
-
-        public static string GetNameFromUser()
+        public void ShowNoAvailableMovesMessage(string i_PlayerName)
         {
-            Console.WriteLine("Hello to Othelo game,please enter your name(and press enter)");
-            string name = Console.ReadLine();
-
-            return name;
+            PrintMessageWithParam(GameMessages.NoValidMovesLeftToPlayer);
         }
 
-        public static void ShowGameWinMessage(Player i_Player1, Player i_Player2)
+        public void ShowGameEnded()
         {
-            Console.WriteLine("{0} score:{1}", i_Player1.PlayerName, i_Player1.Score);
-            Console.WriteLine("{0} score:{1}", i_Player2.PlayerName, i_Player1.Score);
-            if (i_Player1.Score > i_Player2.Score)
-            {
-                Console.WriteLine("Congratulations to {0} for winning the game", i_Player1.PlayerName);
-            }
-            else if (i_Player1.Score < i_Player2.Score)
-            {
-                Console.WriteLine("Congratulations to {0} for winning the game", i_Player2.PlayerName);
-            }
-            else
-            {
-                Console.WriteLine("We Have a Tie");
-            }
+            PrintMessage(GameMessages.GameEnded);
+        }
+
+        public void ShowGameQuitted()
+        {
+            PrintMessage(GameMessages.GameQuited); 
+        }
+
+        public string GetBoardSize()
+        {
+            PrintMessage(GameMessages.GameBoardSize);
+
+            return GetInput();
+        }
+
+        public string GetNextMoveString()
+        {
+            PrintMessage(GameMessages.GetMove);
+
+            return GetInput();
+        }
+
+        public string GetNameFromUser()
+        {
+            PrintMessage(GameMessages.GetNameOfPlayer);
+
+            return GetInput();
+        }
+
+        public void ShowWhichPlayerTurn(string i_PlayerName)
+        {
+            PrintMessageWithParam(GameMessages.NextPlayerToMakeMove, i_PlayerName); 
+        } 
+
+        public void ShowPlayerWonMessage(string i_PlayerName)
+        {
+            PrintMessageWithParam(GameMessages.WinnerPLayer, i_PlayerName);
+             
+        }
+
+        public void ShowGameResultTie()
+        {
+            PrintMessage(GameMessages.GameResultTie); 
+        }
+
+        public void ShowPlayerScode(string i_PlayerName, int i_PlayerScore)
+        {
+            PrintMessageWith2Param(GameMessages.PlayerGameSummery, i_PlayerName, i_PlayerScore);
+        }
+        public void ShowGameSummeryTitle()
+        {
+            PrintMessage(GameMessages.GameSummery); 
         }
      }
 }

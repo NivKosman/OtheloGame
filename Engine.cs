@@ -47,7 +47,7 @@ namespace Ex02_Othelo
                          }
                          else
                          {
-                              m_IO.ShowNoAvailbleMovesForPlayer();
+                              m_IO.ShowNoAvailbleMovesForPlayer(Players[1].PlayerName);
                          }
                     }
                     else
