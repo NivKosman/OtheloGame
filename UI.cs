@@ -59,7 +59,7 @@ namespace Ex02_Othelo
 
         public string GetInput()
         {
-            return GetInput(); 
+            return Console.ReadLine(); 
         }
 
         public string GetModeGameFromUser()
@@ -76,7 +76,7 @@ namespace Ex02_Othelo
 
         public void ShowNoAvailableMovesMessage(string i_PlayerName)
         {
-            PrintMessageWithParam(GameMessages.NoValidMovesLeftToPlayer);
+            PrintMessageWithParam(GameMessages.NoValidMovesLeftToPlayer, i_PlayerName);
         }
 
         public void ShowGameEnded()
