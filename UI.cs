@@ -20,6 +20,11 @@ namespace Ex02_Othelo
             Invalid
         }
 
+        public static void ShowGreetingMessage()
+        {
+            Console.WriteLine(GameMessages.Greeting);
+        }
+
         private static void PrintLineOfCharEqual(int i_BoardHeight)
         {
             Console.Write("   ");
@@ -87,6 +92,7 @@ namespace Ex02_Othelo
 
                 return userChoise;
             }
+            return "0";
         }
 
         public static void ShowInvalidMoveMessage()
@@ -123,6 +129,8 @@ namespace Ex02_Othelo
 
             return move;
         }
+
+
 
         public static string GetNameFromUser()
         {
