@@ -87,7 +87,7 @@ namespace Ex02_Othelo
             Directions dirRightDown = getRightDownDirection();
 
             s_Directions = new[] { dirLeft, dirRight, dirUp, dirDown,
-                                   dirLeft, dirLeftUp, dirLeftDown,
+                                   dirLeftUp, dirLeftDown,
                                    dirRightUp, dirRightDown};
         }
     }
