@@ -96,7 +96,7 @@ namespace Ex02_Othelo
 
         public void ShowBoard(Board io_Board)
         {
-            StringBuilder boardStr = io_Board.ToString();
+            StringBuilder boardStr = io_Board.BoardToString();
             m_UIhandler.PrintBoard(boardStr);
         }
 

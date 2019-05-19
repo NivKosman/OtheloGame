@@ -38,6 +38,8 @@
     <Compile Include="IOhandler.cs" />
     <Compile Include="InputValidator.cs" />
     <Compile Include="Messages.cs" />
+    <Compile Include="AllDirections.cs" />
+    <Compile Include="Directions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
