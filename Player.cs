@@ -35,6 +35,11 @@ namespace Ex02_Othelo
 
           }
 
+          public ePlayerType Type
+          {
+               get { return r_PlayerType; }
+          }
+
           public eColor Color
           {
                get { return r_Color; }
