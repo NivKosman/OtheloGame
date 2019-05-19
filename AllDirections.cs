@@ -68,9 +68,9 @@ namespace Ex02_Othelo
         }
         public static Directions[] GetAllDirections()
         {
-            if (s_Directions.Length == 0)
+            if (s_Directions == null)
             {
-                initAllDirections(); 
+                initAllDirections();
             }
             return s_Directions;
         }

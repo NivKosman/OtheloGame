@@ -6,6 +6,7 @@ namespace Ex02_Othelo
     {
         InputValidator m_Valdator;
         UI m_UIhandler;
+        StringBuilder m_BoardStr;
 
         public IOhandler()
         {
@@ -20,7 +21,7 @@ namespace Ex02_Othelo
 
         public Move GetNextMove(Player i_Player)
         {
-            Move nextMove;
+            Move nextMove = null;
             string nextMoveString;
             bool moveIsValid = false;
 
@@ -96,12 +97,19 @@ namespace Ex02_Othelo
 
         public void ShowBoard(Board io_Board)
         {
-            StringBuilder boardStr = io_Board.BoardToString();
-            m_UIhandler.PrintBoard(boardStr);
+            m_BoardStr = io_Board.BoardToString();
+            m_UIhandler.PrintBoard(m_BoardStr);
+        }
+
+        private void ClearPrintBoard()
+        {
+            ClearScreen();
+            m_UIhandler.PrintBoard(m_BoardStr);
         }
 
         public void ShowNoAvailbleMovesForPlayer(string i_PlayerName)
         {
+            ClearPrintBoard();
             m_UIhandler.ShowNoAvailableMovesMessage(i_PlayerName); 
         }
 
@@ -127,6 +135,7 @@ namespace Ex02_Othelo
 
             public void ShowIllegalMoveMessage()
         {
+            ClearPrintBoard();
             m_UIhandler.ShowInvalidMoveMessage();
         }
 

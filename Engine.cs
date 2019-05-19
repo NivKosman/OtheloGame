@@ -49,7 +49,7 @@ namespace Ex02_Othelo
                          m_Board.UpdateBoardCauseLegalMove(nextMove, Players[0].Color);
                          m_IO.ClearScreen();
                          m_IO.ShowBoard(m_Board);
-                         currPlayerHasMoves = PlayerHasAnyValidMoves(Players[0]);
+                        
                          nextPlayerHasMoves = PlayerHasAnyValidMoves(Players[1]);
                          if (nextPlayerHasMoves)
                          {
@@ -64,14 +64,15 @@ namespace Ex02_Othelo
                     {
                          m_IO.ShowIllegalMoveMessage();
                     }
-
-                    if (Players[0].Type == Player.ePlayerType.Player)
+                    currPlayerHasMoves = PlayerHasAnyValidMoves(Players[0]);
+                    if (currPlayerHasMoves && Players[0].Type == Player.ePlayerType.Player)
                     { 
                          nextMove = m_IO.GetNextMove(Players[0]);
                     }
 
                     nextMoveIsQuit = nextMove.IsQuitMove();
                }
+               m_IO.ShowBoard(m_Board);
 
                m_Player1.Score = m_Board.AmountOfColorInBoard(m_Player1.Color);
                m_Player2.Score = m_Board.AmountOfColorInBoard(m_Player2.Color);
@@ -90,13 +91,27 @@ namespace Ex02_Othelo
 
                return validMoves[randomIndex];            
           }
+          private bool MovesListContainMove(List<Move> i_ListOfMoves, Move i_Move)
+          {
+            bool moveInList = false;
+            foreach (Move move in i_ListOfMoves)
+            {
+                if (move.Col == i_Move.Col && move.Row == i_Move.Row)
+                {
+                    moveInList = true;
+                    i_Move.ValidEndCells = move.ValidEndCells;
+                    i_Move.ValidDirections = move.ValidDirections;
+                }
+            }
 
+            return moveInList;
+          }
           private bool CheckIfMoveIsLegal(Move i_NextMove, Player i_Player)
           {
                List<Move> validMoves = new List<Move>();
                validMoves = m_Board.GetListOfValidMovesForPlayer(i_Player);
-
-               return validMoves.Contains(i_NextMove);
+               
+               return MovesListContainMove(validMoves, i_NextMove);
           }
           
           private bool PlayerHasAnyValidMoves(Player i_Player)

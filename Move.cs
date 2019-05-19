@@ -35,13 +35,15 @@ namespace Ex02_Othelo
                 return m_validDirections.Count > 0;
             return false;
         }
-        public List<Directions> GetValidDirections()
+        public List<Directions> ValidDirections
         {
-            return m_validDirections;
+            get { return m_validDirections; }
+            set { m_validDirections = value; }
         }
-        public List<Board.Cell> GetValidEndCells()
+        public List<Board.Cell> ValidEndCells
         {
-            return m_validDirectionsEndCells;
+            get { return m_validDirectionsEndCells; }
+            set { m_validDirectionsEndCells = value; }
         }
 
         public Move(int i_Row, int i_Col)
@@ -80,7 +82,7 @@ namespace Ex02_Othelo
             v_LengthIsValid = checkMoveStringLengthIsValid(i_InputMoveStr);
             if (v_LengthIsValid == true)
             {
-                v_StringIsValidMove = checkMoveStringIsLegal(i_InputMoveStr, io_Move);
+                v_StringIsValidMove = checkMoveStringIsLegal(i_InputMoveStr, out io_Move);
             }
 
             return v_StringIsValidMove;
@@ -94,7 +96,7 @@ namespace Ex02_Othelo
             return v_QuitLength || v_MoveLength;
         }
 
-        private static bool checkMoveStringIsLegal(string i_InputMoveStr,  Move io_Move)
+        private static bool checkMoveStringIsLegal(string i_InputMoveStr, out Move io_Move)
         {
             bool v_MoveIsCharAndIndexInRange = false;
             bool v_MoveIsQuit = textIsQuit(i_InputMoveStr);
@@ -105,14 +107,15 @@ namespace Ex02_Othelo
             }
             else
             {
-                v_MoveIsCharAndIndexInRange = CharAndNumInValidRange(i_InputMoveStr, io_Move);
+                v_MoveIsCharAndIndexInRange = CharAndNumInValidRange(i_InputMoveStr, out io_Move);
             }
 
             return v_MoveIsQuit || v_MoveIsCharAndIndexInRange;
         }
 
-        private static bool CharAndNumInValidRange(string i_InputMoveStr, Move io_Move)
+        private static bool CharAndNumInValidRange(string i_InputMoveStr, out Move io_Move)
         {
+            io_Move = null;
             char v_FirstChar = i_InputMoveStr[c_IndexOfCharacter];
             char v_SecondChar = i_InputMoveStr[c_IndexOfNumber];
 
@@ -148,7 +151,8 @@ namespace Ex02_Othelo
             if (char.IsDigit(i_CharToCheck))
             {
                 i_Number = int.Parse(i_CharToCheck.ToString());
-                return numberInBoardRange(i_Number-1);
+                i_Number--;
+                return numberInBoardRange(i_Number);
             }
 
             return false;
@@ -156,7 +160,7 @@ namespace Ex02_Othelo
 
         private static bool numberInBoardRange(int i_NumToCheck)
         {
-            return i_NumToCheck > 0 && i_NumToCheck <= s_Height;
+            return i_NumToCheck >= 0 && i_NumToCheck < s_Height;
         }
 
         private static bool textIsQuit(string i_Input)
