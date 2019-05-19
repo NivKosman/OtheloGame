@@ -136,7 +136,7 @@ namespace Ex02_Othelo
             bool v_CharInRange = i_CharToCheck >= 'A' && i_CharToCheck < ('A' + s_Width);
             if (v_CharInRange)
             {
-                i_ColumnLetter = i_CharToCheck - 'A' + 1;
+                i_ColumnLetter = i_CharToCheck - 'A' ;
             }
 
             return v_CharInRange;
@@ -148,7 +148,7 @@ namespace Ex02_Othelo
             if (char.IsDigit(i_CharToCheck))
             {
                 i_Number = int.Parse(i_CharToCheck.ToString());
-                return numberInBoardRange(i_Number);
+                return numberInBoardRange(i_Number-1);
             }
 
             return false;

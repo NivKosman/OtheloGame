@@ -46,7 +46,7 @@ namespace Ex02_Othelo
                     }
                     if (nextMoveIsLegal)
                     {
-                         m_Board.UpdateBoardCauseLegalMove(nextMove.Row, nextMove.Col, Players[0].Color);
+                         m_Board.UpdateBoardCauseLegalMove(nextMove, Players[0].Color);
                          m_IO.ClearScreen();
                          m_IO.ShowBoard(m_Board);
                          currPlayerHasMoves = PlayerHasAnyValidMoves(Players[0]);

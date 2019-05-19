@@ -41,13 +41,13 @@ namespace Ex02_Othelo
         public int GetSizeOfBoard()
         {
              bool sizeIsValid = false;
-             int sizeBoard;
+             int sizeBoard=0;
              string sizeBoardString;
 
              while (!sizeIsValid)
              {
                  sizeBoardString = m_UIhandler.GetBoardSize();
-                 sizeIsValid = BoardSizeIsValid(sizeBoardString, out sizeBoard);
+                    sizeIsValid = m_Valdator.BoardSizeIsValid(sizeBoardString, out sizeBoard);
              }
 
              return sizeBoard;
