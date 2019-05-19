@@ -12,154 +12,138 @@ namespace Ex02_Othelo
         private readonly int r_Width;
         private char[,] m_Board;
 
-
-
-          struct Directions
-          {
-             public int m_DirRow;
-             public int m_DirCol;
-          }
-       
-        private bool checkDirection(int i_Row, int i_Column, Player.eColor i_Color, Directions i_Direction
-             ,out int i_RowToFill,out int i_ColToFill)
-          {
-               i_RowToFill = -1;
-               i_ColToFill = -1;
-               bool isDirLegal = true;
-               Player.eColor colorToCheck;
-
-               if (i_Color == Player.eColor.White)
-               {
-                    colorToCheck = Player.eColor.Black;
-               }
-               else
-               {
-                    colorToCheck = Player.eColor.White;
-               }
-
-               i_Row += i_Direction.m_DirRow;
-               i_Column += i_Direction.m_DirCol;
-               if (i_Row < 0 || i_Row >= r_Height || i_Column < 0 || i_Column >= r_Width)
-               {
-                    isDirLegal = false;
-               }
-               else
-               {
-                    if (m_Board[i_Row, i_Column] == (char)i_Color || m_Board[i_Row, i_Column] == ' ')
-                    {
-                         isDirLegal = false;
-                    }
-                    else
-                    { 
-                         while (i_Row >= 0 && i_Row < r_Height && i_Column >= 0 && i_Column < r_Width)
-                         {            
-                              if (m_Board[i_Row, i_Column] == ' ')
-                              {
-                                   isDirLegal = false;
-
-                                   return isDirLegal;
-                              }
-                              else if (m_Board[i_Row, i_Column] == (char)colorToCheck)
-                              {
-                                   i_Row += i_Direction.m_DirRow;
-                                   i_Column += i_Direction.m_DirCol;
-                              }
-                              else
-                              {
-                                   i_RowToFill = i_Row;
-                                   i_ColToFill = i_Column;
-                                   return isDirLegal;
-                              }
-                         }
-
-                         isDirLegal = false;
-                    }                        
-               }
-
-               return isDirLegal;
-          }    
-
-        private void initDirection(Directions [] i_Direstions)
-          {
-               i_Direstions[0].m_DirRow = -1;
-               i_Direstions[0].m_DirCol = 0;
-               i_Direstions[1].m_DirRow = 1;
-               i_Direstions[1].m_DirCol = 0;
-               i_Direstions[2].m_DirRow = 0;
-               i_Direstions[2].m_DirCol = 1;
-               i_Direstions[3].m_DirRow = 0;
-               i_Direstions[3].m_DirCol = -1;
-               i_Direstions[4].m_DirRow = -1;
-               i_Direstions[4].m_DirCol = -1;
-               i_Direstions[5].m_DirRow = -1;
-               i_Direstions[5].m_DirCol = 1;
-               i_Direstions[6].m_DirRow = 1;
-               i_Direstions[6].m_DirCol = -1;
-               i_Direstions[7].m_DirRow = 1;
-               i_Direstions[7].m_DirCol = 1;
-          }
-         
-        public void UpdateBoardCauseLegalMove(int i_Row, int i_Col, Player.eColor i_Color)
-          {
-               Directions[] allDirections = new Directions[8];
-               initDirection(allDirections);
-               int rowToFill;
-               int colToFill;
-
-               for(int i=0 ; i<8 ; i++)
-               {
-                    if (checkDirection(i_Row, i_Col, i_Color, allDirections[i], out rowToFill, out colToFill))
-                    {
-                         fillsCells(i_Row, i_Col, allDirections[i], i_Color, rowToFill, colToFill);
-                    }
-               }
-
-          }
-
-        public bool MoveIsLegal(int i_Row, int i_Column,Player.eColor i_Color )
+        public class Cell
         {
-               int rowToFill;
-               int colToFill;
-               bool v_MoveIsLegal = true;
-               bool atLeastOneDirIsLegal = false;
-               Directions[] allDirections = new Directions[8];
-
-               initDirection(allDirections);
-               if (m_Board[i_Row, i_Column] != ' ')
-               {
-                    v_MoveIsLegal = false;
-               }
-               else
-               {
-                    for(int i=0 ; i<=8 ; i++)
-                    {
-                         if(checkDirection(i_Row, i_Column, i_Color, allDirections[i],out rowToFill,out colToFill))
-                         {
-                              atLeastOneDirIsLegal = true;
-                         }
-                    }
-               }
-
-            return v_MoveIsLegal && atLeastOneDirIsLegal;
+            int m_Row;
+            int m_Col;
+            public Cell(int i_Row, int i_Col)
+            {
+                m_Row = i_Row;
+                m_Col = i_Col;
+            } 
+            public int Row 
+            {
+                get { return m_Row; } 
+                set { m_Row = value; }
+            }
+            public int Col
+            {
+                get { return m_Col; }
+                set { m_Col = value; } 
+            }
+            public void MoveToDirection(Directions i_Direction)
+            {
+                Row += i_Direction.m_DirRow;
+                Col += i_Direction.m_DirCol; 
+            }
+            public bool AtSameLocationLikeCell(Cell i_Cell)
+            {
+                return m_Row == i_Cell.Row && m_Col == i_Cell.Col;
+            }
         }
 
-        private void fillsCells(int i_FromRowToFill,int i_FromColToFill,Directions i_Direction, Player.eColor i_Color,
-             int i_ToRowToFill,int i_ToColToFill)
+        Player.eColor GetOponentColor(Player.eColor i_Color)
         {
-               int row = i_FromRowToFill;
-               int col = i_FromColToFill;
-
-               while((row != i_ToRowToFill) && (col != i_ToColToFill))
-               {
-                    m_Board[row, col] = (char)i_Color;
-                    row += i_Direction.m_DirRow;
-                    col += i_Direction.m_DirCol;
-               }
+            return i_Color == Player.eColor.White? Player.eColor.Black : Player.eColor.White;
         }
 
-        private bool cellIsEmpty(int i_Height, int i_Width)
+        bool CellOutOfBoundary(Cell i_CellToCheck)
         {
-            return m_Board[i_Height, i_Width] == (char)Player.eColor.Empty;
+            int row = i_CellToCheck.Row;
+            int col = i_CellToCheck.Col;
+            return row < 0 || row >= r_Height || col < 0 || col >= r_Width;
+        }
+
+        bool CellContainsColor(Cell i_CellToCheck, Player.eColor i_Color)
+        {
+            char cellValueInBoard = GetPiece(i_CellToCheck.Row, i_CellToCheck.Col);
+            return cellValueInBoard == (char)i_Color;
+
+
+        }
+        public void UpdateBoardCauseLegalMove(Move i_Move, Player.eColor i_Color)
+        {
+            List<Directions> MoveValidDirections = i_Move.GetValidDirections();
+            List<Cell> MoveValidEndCells = i_Move.GetValidEndCells();
+
+            Cell startCell = new Cell(i_Move.Row, i_Move.Col);
+
+            for (int i = 0; i < MoveValidDirections.Count; i++)
+            {
+                Directions validDirection = MoveValidDirections[i];
+                Cell finalCellInDirection = MoveValidEndCells[i];
+                fillsCells(startCell, validDirection, finalCellInDirection, i_Color);
+            }
+        }
+        private bool checkDirection(Cell i_StartCell, Player.eColor i_CurrentPlayerColor, 
+                                    Directions i_Direction, out Cell o_EndCell)
+        {
+            Player.eColor oponentColor = GetOponentColor(i_CurrentPlayerColor);
+            i_StartCell.MoveToDirection(i_Direction);
+
+            bool cellOutOfBoundary = CellOutOfBoundary(i_StartCell);
+            bool cellContainsOponentColor = CellContainsColor(i_StartCell, oponentColor);
+            bool cellContainsCurrentPlayerColor = false;
+
+            while (!cellOutOfBoundary && cellContainsOponentColor)
+            {
+                i_StartCell.MoveToDirection(i_Direction);
+                cellOutOfBoundary = CellOutOfBoundary(i_StartCell);
+                cellContainsOponentColor = CellContainsColor(i_StartCell, oponentColor);
+                cellContainsCurrentPlayerColor = CellContainsColor(i_StartCell, i_CurrentPlayerColor);
+            }
+            o_EndCell = new Cell(i_StartCell.Row, i_StartCell.Col);
+
+            return !cellOutOfBoundary && cellContainsCurrentPlayerColor;
+        }
+        
+        public bool MoveIsLegal(int i_Row, int i_Column, Player.eColor i_PlayerColor, out Move o_Move)
+        {
+            o_Move = null;
+            bool v_MoveIsLegal = false;
+            Cell cellToCheck = new Cell(i_Row, i_Column);
+            Directions[] allDirections = AllDirections.GetAllDirections();
+          
+            if (cellIsEmpty(cellToCheck))
+            {
+                o_Move = new Move(i_Row, i_Column);
+                foreach(Directions direction in allDirections)
+                {
+                    Cell endCell;
+                    if (checkDirection(cellToCheck, i_PlayerColor, direction, out endCell))
+                    {
+                        o_Move.AddValidDirection(direction, endCell);
+                    }
+                }
+
+                v_MoveIsLegal = o_Move.HasValidMove();
+            }
+
+            return v_MoveIsLegal;
+        }
+
+
+
+        private void fillsCells(Cell i_FromCell, Directions i_Direction, Cell i_ToCell, Player.eColor i_Color)
+        {
+            while (!i_FromCell.AtSameLocationLikeCell(i_ToCell))
+            {
+                PlacePiece(i_FromCell.Row, i_FromCell.Col, i_Color);
+                i_FromCell.MoveToDirection(i_Direction); 
+            }
+         }
+
+        private bool cellIsEmpty(Cell i_CellToCheck)
+        {
+            return GetValueAtCell(i_CellToCheck) == (char)Player.eColor.Empty;
+        }
+
+        public char GetValueAtCell(Cell i_CellToGet)
+        {
+            int row = i_CellToGet.Row;
+            int col = i_CellToGet.Col;
+
+            return m_Board[row, col];
         }
 
         public int AmountOfColorInBoard(ref Player.eColor i_Color)
@@ -219,21 +203,20 @@ namespace Ex02_Othelo
             }
 
         }
-
+       
         public List<Move> GetListOfValidMovesForPlayer(Player i_Player)
         {
             List<Move> validMoves = new List<Move>();
-            Move move;
+
             int i, j;
 
             for (i = 0; i < r_Height; i++)
             {
                 for (j = 0; j < r_Width; j++)
                 {
-                    move = new Move(i, j);
-                    if (MoveIsLegal(i, j,i_Player.Color))
+                    Move move; //move = new Move(i, j);
+                    if (MoveIsLegal(i, j, i_Player.Color, out move))
                     {
-                        move = new Move(i, j);
                         validMoves.Add(move);
                     }
                 }
@@ -242,17 +225,17 @@ namespace Ex02_Othelo
             return validMoves;
         }
 
-          public char[,] Matrix
+        public char[,] Matrix
         {
             get { return m_Board; }
         }
 
-          public int Height
+        public int Height
         {
             get { return r_Height; }
         }
 
-          public int Width
+        public int Width
         {
             get { return r_Width; }
         }
@@ -266,7 +249,7 @@ namespace Ex02_Othelo
             m_Board[i_Height, i_Width] = (char)i_Color;
         }
 
-         public StringBuilder ToString()
+        public StringBuilder BoardToString()
         {
             int i, j;
             StringBuilder boardToString = new StringBuilder();

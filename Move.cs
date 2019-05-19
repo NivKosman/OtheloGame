@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 namespace Ex02_Othelo
 {
     public class Move
@@ -11,15 +12,45 @@ namespace Ex02_Othelo
         private readonly int m_Row;
         private readonly int m_Col;
         bool m_Quite;
+
+        private List<Directions> m_validDirections;
+        private List<Board.Cell> m_validDirectionsEndCells;
+
         const int k_LengthOfMoveStr = 2;
         const int k_LengthOfQuitStr = 1;
 
+        public void AddValidDirection(Directions i_DirectionToAdd, Board.Cell i_EndCell)
+        {
+            if (m_validDirections == null)
+            {
+                m_validDirections = new List<Directions>(1);
+                m_validDirectionsEndCells = new List<Board.Cell>(1);
+            }
+            m_validDirections.Add(i_DirectionToAdd);
+            m_validDirectionsEndCells.Add(i_EndCell);
+        }
 
+        public bool HasValidMove()
+        {
+            if (m_validDirections != null)
+                return m_validDirections.Count > 0;
+            return false;
+        }
+        public List<Directions> GetValidDirections()
+        {
+            return m_validDirections;
+        }
+        public List<Board.Cell> GetValidEndCells()
+        {
+            return m_validDirectionsEndCells;
+        }
 
         public Move(int i_Row, int i_Col)
         {
             m_Row = i_Row;
             m_Col = i_Col;
+            m_validDirections = null;
+            m_validDirectionsEndCells = null;
         }
 
         public Move(bool i_IsQuit)
