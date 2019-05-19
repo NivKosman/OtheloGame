@@ -27,6 +27,7 @@ namespace Ex02_Othelo
                Players[0] = m_Player1;
                Players[1] = m_Player2;
 
+               bool nextMoveIsLegal;
                bool currPlayerHasMoves = true;
                bool nextPlayerHasMoves = true;
                Move nextMove = m_IO.GetNextMove(Players[0]);
@@ -34,11 +35,20 @@ namespace Ex02_Othelo
 
                while (!nextMoveIsQuit && (currPlayerHasMoves || nextPlayerHasMoves))
                {
-                    bool nextMoveIsLegal = CheckIfMoveIsLegal(nextMove, Players[0]);
-
+                    if (Players[0].Type == Player.ePlayerType.Player)
+                    {    
+                         nextMoveIsLegal = CheckIfMoveIsLegal(nextMove, Players[0]);
+                    }
+                    else
+                    {
+                         nextMove = acheiveOneLegalMoveOfComputer(Players[0]);
+                         nextMoveIsLegal = true;
+                    }
                     if (nextMoveIsLegal)
                     {
-                         m_Board.PlacePiece(nextMove.Row, nextMove.Col, Players[0].Color);
+                         m_Board.UpdateBoardCauseLegalMove(nextMove.Row, nextMove.Col, Players[0].Color);
+                         m_IO.ClearScreen();
+                         m_IO.ShowBoard(m_Board);
                          currPlayerHasMoves = PlayerHasAnyValidMoves(Players[0]);
                          nextPlayerHasMoves = PlayerHasAnyValidMoves(Players[1]);
                          if (nextPlayerHasMoves)
@@ -55,11 +65,27 @@ namespace Ex02_Othelo
                          m_IO.ShowIllegalMoveMessage();
                     }
 
-                    nextMove = m_IO.GetNextMove(Players[0]);
+                    if (Players[0].Type == Player.ePlayerType.Player)
+                    { 
+                         nextMove = m_IO.GetNextMove(Players[0]);
+                    }
+
                     nextMoveIsQuit = nextMove.IsQuitMove();
                }
 
                return nextMoveIsQuit;
+          }
+
+          private Move acheiveOneLegalMoveOfComputer(Player i_Player)
+          {
+               int randomIndex;
+               List<Move> validMoves = new List<Move>();
+               Random randomNumber = new Random();
+
+               validMoves = m_Board.GetListOfValidMovesForPlayer(i_Player);
+               randomIndex = randomNumber.Next(validMoves.Count);
+
+               return validMoves[randomIndex];            
           }
 
           private bool CheckIfMoveIsLegal(Move i_NextMove, Player i_Player)

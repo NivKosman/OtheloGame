@@ -266,7 +266,7 @@ namespace Ex02_Othelo
             m_Board[i_Height, i_Width] = (char)i_Color;
         }
 
-        public StringBuilder ToString()
+         public StringBuilder ToString()
         {
             int i, j;
             StringBuilder boardToString = new StringBuilder();
