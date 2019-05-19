@@ -13,13 +13,6 @@ namespace Ex02_Othelo
             m_UIhandler = new UI();
         }
 
-        public enum eGameResult 
-        {
-            Player1,
-            Player2,
-            Tie 
-        }
-
         public void ClearScreen()
         {
             m_UIhandler.ClearScreen();
@@ -43,6 +36,21 @@ namespace Ex02_Othelo
             }
 
             return nextMove;
+        }
+
+        public int GetSizeOfBoard()
+        {
+             bool sizeIsValid = false;
+             int sizeBoard;
+             string sizeBoardString;
+
+             while (!sizeIsValid)
+             {
+                 sizeBoardString = m_UIhandler.GetBoardSize();
+                 sizeIsValid = BoardSizeIsValid(sizeBoardString, out sizeBoard);
+             }
+
+             return sizeBoard;
         }
 
         public string GetPlayerName()
@@ -97,17 +105,17 @@ namespace Ex02_Othelo
             m_UIhandler.ShowNoAvailableMovesMessage(i_PlayerName); 
         }
 
-        public void ShowGameResultMessage(Player i_Player1, Player i_Player2, eGameResult i_gameResult)
+        public void ShowGameResultMessage(Player i_Player1, Player i_Player2, Game.eGameResult i_gameResult)
         {
             m_UIhandler.ShowGameSummeryTitle();
-            m_UIhandler.ShowPlayerScode(i_Player1.PlayerName, i_Player1.Score);
-            m_UIhandler.ShowPlayerScode(i_Player2.PlayerName, i_Player2.Score);
+            m_UIhandler.ShowPlayerScore(i_Player1.PlayerName, i_Player1.Score);
+            m_UIhandler.ShowPlayerScore(i_Player2.PlayerName, i_Player2.Score);
 
-            if (i_gameResult == eGameResult.Player1)
+            if (i_gameResult == Game.eGameResult.Player1)
             {
                 m_UIhandler.ShowPlayerWonMessage(i_Player1.PlayerName);
             }
-            else if (i_gameResult == eGameResult.Player2)
+            else if (i_gameResult == Game.eGameResult.Player2)
             {
                 m_UIhandler.ShowPlayerWonMessage(i_Player2.PlayerName);
             }
@@ -115,7 +123,6 @@ namespace Ex02_Othelo
             {
                 m_UIhandler.ShowGameResultTie();
             }
-
         }
 
             public void ShowIllegalMoveMessage()
