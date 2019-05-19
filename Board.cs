@@ -12,11 +12,7 @@ namespace Ex02_Othelo
         private readonly int r_Width;
         private char[,] m_Board;
 
-          private bool moveIsLegal(Move io_move)
-          {
-               //TODO->implementation
-               return true;
-          }
+
 
           struct Directions
           {
@@ -102,6 +98,23 @@ namespace Ex02_Othelo
                i_Direstions[7].m_DirRow = 1;
                i_Direstions[7].m_DirCol = 1;
           }
+         
+        public void UpdateBoardCauseLegalMove(int i_Row, int i_Col, Player.eColor i_Color)
+          {
+               Directions[] allDirections = new Directions[8];
+               initDirection(allDirections);
+               int rowToFill;
+               int colToFill;
+
+               for(int i=0 ; i<8 ; i++)
+               {
+                    if (checkDirection(i_Row, i_Col, i_Color, allDirections[i], out rowToFill, out colToFill))
+                    {
+                         fillsCells(i_Row, i_Col, allDirections[i], i_Color, rowToFill, colToFill);
+                    }
+               }
+
+          }
 
         public bool MoveIsLegal(int i_Row, int i_Column,Player.eColor i_Color )
         {
@@ -122,7 +135,6 @@ namespace Ex02_Othelo
                     {
                          if(checkDirection(i_Row, i_Column, i_Color, allDirections[i],out rowToFill,out colToFill))
                          {
-                              fillsCells(i_Row, i_Column, allDirections[i], i_Color, rowToFill, colToFill);
                               atLeastOneDirIsLegal = true;
                          }
                     }
@@ -218,8 +230,8 @@ namespace Ex02_Othelo
             {
                 for (j = 0; j < r_Width; j++)
                 {
-                    //move = new Move(i, j);
-                    if (moveIsLegal(i, j))
+                    move = new Move(i, j);
+                    if (MoveIsLegal(i, j,i_Player.Color))
                     {
                         move = new Move(i, j);
                         validMoves.Add(move);
