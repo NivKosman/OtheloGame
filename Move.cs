@@ -4,9 +4,8 @@ namespace Ex02_Othelo
 {
     public class Move
     {
-        //TODO-> insert values to witdh and height acrroding to board size 
-        private static int s_Width;
-        private static int s_Height;
+        public static int s_Width;
+        public static int s_Height;
         private const int c_IndexOfCharacter = 0;
         private const int c_IndexOfNumber = 1;
         private readonly int m_Row;
@@ -81,7 +80,7 @@ namespace Ex02_Othelo
             v_LengthIsValid = checkMoveStringLengthIsValid(i_InputMoveStr);
             if (v_LengthIsValid == true)
             {
-                v_StringIsValidMove = checkMoveStringIsLegal(i_InputMoveStr, ref io_Move);
+                v_StringIsValidMove = checkMoveStringIsLegal(i_InputMoveStr, io_Move);
             }
 
             return v_StringIsValidMove;
@@ -95,7 +94,7 @@ namespace Ex02_Othelo
             return v_QuitLength || v_MoveLength;
         }
 
-        private static bool checkMoveStringIsLegal(string i_InputMoveStr, ref Move io_Move)
+        private static bool checkMoveStringIsLegal(string i_InputMoveStr,  Move io_Move)
         {
             bool v_MoveIsCharAndIndexInRange = false;
             bool v_MoveIsQuit = textIsQuit(i_InputMoveStr);
@@ -135,7 +134,7 @@ namespace Ex02_Othelo
         {
             i_CharToCheck = Char.ToUpper(i_CharToCheck);
             bool v_CharInRange = i_CharToCheck >= 'A' && i_CharToCheck < ('A' + s_Width);
-            if (v_CharInRange == true)
+            if (v_CharInRange)
             {
                 i_ColumnLetter = i_CharToCheck - 'A' + 1;
             }
