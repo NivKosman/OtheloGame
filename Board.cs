@@ -63,13 +63,14 @@ namespace Ex02_Othelo
         }
         public void UpdateBoardCauseLegalMove(Move i_Move, Player.eColor i_Color)
         {
-            List<Directions> MoveValidDirections = i_Move.GetValidDirections();
-            List<Cell> MoveValidEndCells = i_Move.GetValidEndCells();
+            List<Directions> MoveValidDirections = i_Move.ValidDirections;
+            List<Cell> MoveValidEndCells = i_Move.ValidEndCells;
 
-            Cell startCell = new Cell(i_Move.Row, i_Move.Col);
+            Cell startCell;
 
             for (int i = 0; i < MoveValidDirections.Count; i++)
             {
+                startCell = new Cell(i_Move.Row, i_Move.Col);
                 Directions validDirection = MoveValidDirections[i];
                 Cell finalCellInDirection = MoveValidEndCells[i];
                 fillsCells(startCell, validDirection, finalCellInDirection, i_Color);
@@ -80,17 +81,23 @@ namespace Ex02_Othelo
         {
             Player.eColor oponentColor = GetOponentColor(i_CurrentPlayerColor);
             i_StartCell.MoveToDirection(i_Direction);
-
-            bool cellOutOfBoundary = CellOutOfBoundary(i_StartCell);
-            bool cellContainsOponentColor = CellContainsColor(i_StartCell, oponentColor);
             bool cellContainsCurrentPlayerColor = false;
+            bool cellContainsOponentColor = false;
+            bool cellOutOfBoundary = CellOutOfBoundary(i_StartCell);
+            if (!cellOutOfBoundary)
+            {
+                cellContainsOponentColor = CellContainsColor(i_StartCell, oponentColor);
+            }
 
             while (!cellOutOfBoundary && cellContainsOponentColor)
             {
                 i_StartCell.MoveToDirection(i_Direction);
                 cellOutOfBoundary = CellOutOfBoundary(i_StartCell);
-                cellContainsOponentColor = CellContainsColor(i_StartCell, oponentColor);
-                cellContainsCurrentPlayerColor = CellContainsColor(i_StartCell, i_CurrentPlayerColor);
+                if (!cellOutOfBoundary)
+                {
+                    cellContainsOponentColor = CellContainsColor(i_StartCell, oponentColor);
+                    cellContainsCurrentPlayerColor = CellContainsColor(i_StartCell, i_CurrentPlayerColor);
+                }
             }
             o_EndCell = new Cell(i_StartCell.Row, i_StartCell.Col);
 
@@ -109,8 +116,9 @@ namespace Ex02_Othelo
                 o_Move = new Move(i_Row, i_Column);
                 foreach(Directions direction in allDirections)
                 {
+                    Cell startCell = new Cell(i_Row, i_Column);
                     Cell endCell;
-                    if (checkDirection(cellToCheck, i_PlayerColor, direction, out endCell))
+                    if (checkDirection(startCell, i_PlayerColor, direction, out endCell))
                     {
                         o_Move.AddValidDirection(direction, endCell);
                     }

@@ -19,7 +19,7 @@ namespace Ex02_Othelo
             GetMove = "Enter your move..",
             WinnerPLayer = "Congradulations {0}! You are the winner !!!",
             GameSummery = "----Game Summery----",
-            PlayerGameSummery = "Player {1} Game Score: {2}",
+            PlayerGameSummery = "Player {0} Game Score: {1}",
             GameResultTie = "We have a TIE!";
 
     }
