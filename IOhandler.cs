@@ -20,7 +20,7 @@ namespace Ex02_Othelo
 
         public Move GetNextMove(Player i_Player)
         {
-            Move nextMove = null;
+            Move nextMove;
             string nextMoveString;
             bool moveIsValid = false;
 
