@@ -126,9 +126,9 @@ namespace Ex02_Othelo
             PrintMessage(GameMessages.GameResultTie); 
         }
 
-        public void ShowPlayerScode(string i_PlayerName, int i_PlayerScore)
+        public void ShowPlayerScore(string i_PlayerName, int i_PlayerScore)
         {
-            PrintMessageWith2Param(GameMessages.PlayerGameSummery, i_PlayerName, i_PlayerScore);
+           PrintMessageWith2Param(GameMessages.PlayerGameSummery, i_PlayerName, i_PlayerScore.ToString()); 
         }
         public void ShowGameSummeryTitle()
         {

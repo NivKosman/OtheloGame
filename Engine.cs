@@ -8,10 +8,10 @@ namespace Ex02_Othelo
 {
      public class Engine
      {
-          readonly IOhandler m_IO;
-          readonly Board m_Board;
-          readonly Player m_Player1;
-          readonly Player m_Player2;
+          private IOhandler m_IO;
+          private Board m_Board;
+          private Player m_Player1;
+          private Player m_Player2;
 
           public Engine(Board io_Board, Player i_Player1, Player i_Player2)
           {
@@ -72,6 +72,9 @@ namespace Ex02_Othelo
 
                     nextMoveIsQuit = nextMove.IsQuitMove();
                }
+
+               m_Player1.Score = m_Board.AmountOfColorInBoard(m_Player1.Color);
+               m_Player2.Score = m_Board.AmountOfColorInBoard(m_Player2.Color);
 
                return nextMoveIsQuit;
           }

@@ -131,7 +131,7 @@ namespace Ex02_Othelo
                }
                else
                {
-                    for(int i=0 ; i<=8 ; i++)
+                    for(int i=0 ; i<8 ; i++)
                     {
                          if(checkDirection(i_Row, i_Column, i_Color, allDirections[i],out rowToFill,out colToFill))
                          {
@@ -162,7 +162,7 @@ namespace Ex02_Othelo
             return m_Board[i_Height, i_Width] == (char)Player.eColor.Empty;
         }
 
-        public int AmountOfColorInBoard(ref Player.eColor i_Color)
+        public int AmountOfColorInBoard(Player.eColor i_Color)
         {
             char colorToCheck = (char)i_Color;
             int counterColor = 0;
@@ -199,8 +199,8 @@ namespace Ex02_Othelo
 
         private void placeStartingPieces(int i_height, int i_width)
         {
-            int columnOfUpperLeftCorner = i_width / 2;
-            int rowOfUpperLeftCorner = i_height / 2;
+            int columnOfUpperLeftCorner = (i_width / 2)-1;
+            int rowOfUpperLeftCorner = (i_height / 2)-1;
 
             PlacePiece(rowOfUpperLeftCorner, columnOfUpperLeftCorner, Player.eColor.White);
             PlacePiece(rowOfUpperLeftCorner + 1, columnOfUpperLeftCorner + 1, Player.eColor.White);

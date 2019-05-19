@@ -47,17 +47,13 @@ namespace Ex02_Othelo
 
           public Player()
           {
-
           }
-          public Player(ref ePlayerType i_PlayerType, ref eColor i_Color)
-          {
-               r_PlayerType = i_PlayerType;
 
+          public Player (string i_PlayerName, ePlayerType i_PlayerType, eColor i_Color)
+          {
+               m_PlayerName = i_PlayerName;
+               r_PlayerType = i_PlayerType;
                r_Color = i_Color;
-               if(r_PlayerType == ePlayerType.Computer)
-               {
-                    m_PlayerName = "Computer";
-               }
           }
 
           public int Score
