@@ -45,9 +45,11 @@ namespace Ex02_Othelo
 
                m_IO = new IOhandler();
                initGame();
-               m_Engine = new Engine(m_Board, m_Player1, m_Player2);
+                m_Board = new Board(Move.s_Height, Move.s_Width);
+                m_Engine = new Engine(m_Board, m_Player1, m_Player2);
                while (isPlayerWantAnotherRound)
                {
+                    
                     m_IO.ShowBoard(m_Board);
                     isPressedQ = m_Engine.Run();
                     if (isPressedQ)
@@ -59,6 +61,13 @@ namespace Ex02_Othelo
                          gameResult = GetGameResult(m_Player1, m_Player2);
                          m_IO.ShowGameResultMessage(m_Player1, m_Player2, gameResult);
                          isPlayerWantAnotherRound = m_IO.GetStartNewGameSelection();
+
+                    if (isPlayerWantAnotherRound)
+                    {
+                        m_Board = new Board(Move.s_Height, Move.s_Width);
+                        m_Engine = new Engine(m_Board, m_Player1, m_Player2);
+                    }
+
                     }
                }
 
@@ -85,7 +94,7 @@ namespace Ex02_Othelo
                }
 
                sizeOfBoard = m_IO.GetSizeOfBoard();
-               m_Board = new Board(sizeOfBoard, sizeOfBoard);
+               
                Move.s_Height = sizeOfBoard;
                Move.s_Width = sizeOfBoard;              
           }
