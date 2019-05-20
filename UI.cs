@@ -27,7 +27,7 @@ namespace Ex02_Othelo
 
         public void ClearScreen()
         {
-            //Ex02.ConsoleUtils.Screen.Clear();
+            Ex02.ConsoleUtils.Screen.Clear();
         }
 
         public void PrintBoard(StringBuilder i_BoardString)
@@ -35,7 +35,7 @@ namespace Ex02_Othelo
             Console.Write(i_BoardString);
         }
 
-        public string GetResponseForPlayAgainMessage() //AskingUserPlayingAgainOrEnding()
+        public string GetResponseForPlayAgainMessage()
         {
             PrintMessage(GameMessages.PlayAgain);
 

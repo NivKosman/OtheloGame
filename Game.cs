@@ -45,10 +45,9 @@ namespace Ex02_Othelo
 
                m_IO = new IOhandler();
                initGame();
+               m_Engine = new Engine(m_Board, m_Player1, m_Player2);
                while (isPlayerWantAnotherRound)
                {
-
-                    m_Engine = new Engine(m_Board, m_Player1, m_Player2);
                     m_IO.ShowBoard(m_Board);
                     isPressedQ = m_Engine.Run();
                     if (isPressedQ)
