@@ -1,0 +1,668 @@
+[33mcommit f7654ecde526fd66dde206c55545b3423b3ea02c[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/fixing_Branch[m[33m, [m[1;32mfixing_Branch[m[33m, [m[1;32mFixing_Bugsss[m[33m)[m
+Merge: 132ca3d 14468c6
+Author: NivKosman <50542585+NivKosman@users.noreply.github.com>
+Date:   Sun May 19 20:58:54 2019 +0300
+
+    Merge pull request #32 from AndreyRaykhman/QAAA
+    
+    FIXIng_Direction
+
+[33mcommit 14468c6de15de63119c9dd57196edc0c78cfb2dd[m[33m ([m[1;31morigin/QAAA[m[33m)[m
+Author: NivKosman <Niv.kosman95@gmail.com>
+Date:   Sun May 19 20:57:45 2019 +0300
+
+    FIXIng_Direction
+
+[33mcommit 132ca3d3a72cf77544f448e5dede4adecea7f0e1[m
+Merge: 8fa9e70 cacab6b
+Author: NivKosman <50542585+NivKosman@users.noreply.github.com>
+Date:   Sun May 19 20:21:29 2019 +0300
+
+    Merge pull request #31 from AndreyRaykhman/Try_To_Fix_The_Problem
+    
+    little bugs
+
+[33mcommit cacab6b4861baf40f7aa52e9daadd451a9fa1845[m[33m ([m[1;31morigin/Try_To_Fix_The_Problem[m[33m, [m[1;32mTry_To_Fix_The_Problem[m[33m)[m
+Author: NivKosman <Niv.kosman95@gmail.com>
+Date:   Sun May 19 20:18:43 2019 +0300
+
+    little bugs
+
+[33mcommit 8fa9e70f5e2b3bd7c9aedaf2216a6fc10c430215[m
+Merge: 910b86c 7fbf4ac
+Author: NivKosman <50542585+NivKosman@users.noreply.github.com>
+Date:   Sun May 19 19:54:09 2019 +0300
+
+    Merge pull request #30 from AndreyRaykhman/Board-Engine-improvements
+    
+    Improve Board Class
+
+[33mcommit 7fbf4ac8a33289de4c4de2a8c8e71c3e040a42b3[m[33m ([m[1;31morigin/Board-Engine-improvements[m[33m)[m
+Merge: c335406 910b86c
+Author: AndreyRaykhman <andrey.richman@gmail.com>
+Date:   Sun May 19 19:51:09 2019 +0300
+
+    Merge branch 'master' into Board-Engine-improvements
+
+[33mcommit c33540691ca13a705f724fc549b2cb0a88eeb177[m
+Author: Andrey Richman <andrey.richman@gmail.com>
+Date:   Sun May 19 19:48:09 2019 +0300
+
+    Improve Board Class
+
+[33mcommit 910b86c8f6f117f940ed46d1d2ebb69231cad50e[m[33m ([m[1;32mQA_testing[m[33m, [m[1;32mLittle_Update[m[33m, [m[1;32mBackUp_Branch[m[33m)[m
+Merge: a9c8cec ea502d3
+Author: NivKosman <50542585+NivKosman@users.noreply.github.com>
+Date:   Sun May 19 18:02:58 2019 +0300
+
+    Merge pull request #29 from AndreyRaykhman/Improving_Start
+    
+    i updated what we needed for start.
+
+[33mcommit ea502d31e3f2e6c133598accf6252d76bdf7c2fe[m[33m ([m[1;31morigin/Improving_Start[m[33m)[m
+Author: AndreyRaykhman <andrey.richman@gmail.com>
+Date:   Sun May 19 17:56:45 2019 +0300
+
+    IOhandler:Fix for Get Size
+
+[33mcommit 5c14fb90709203643b49a966a7e5d022ff087c55[m
+Author: NivKosman <Niv.kosman95@gmail.com>
+Date:   Sun May 19 16:53:00 2019 +0300
+
+    i updated what we needed for start.
+
+[33mcommit a9c8cec089d532d169f48844f3da31ed89bb00c0[m
+Merge: 3820a70 d57de78
+Author: AndreyRaykhman <andrey.richman@gmail.com>
+Date:   Sun May 19 11:58:59 2019 +0300
+
+    Merge pull request #28 from AndreyRaykhman/Improving_Run
+    
+    i improved run , i want to pass with you on her.
+
+[33mcommit d57de78aa585c10909b3b01fce90425e5e652cee[m[33m ([m[1;31morigin/Improving_Run[m[33m)[m
+Author: NivKosman <Niv.kosman95@gmail.com>
+Date:   Sun May 19 11:37:54 2019 +0300
+
+    i improved run , i want to pass with you on her.
+
+[33mcommit 3820a7072f34340c219f414725c558a685704964[m
+Merge: 30fb543 85d0c80
+Author: NivKosman <50542585+NivKosman@users.noreply.github.com>
+Date:   Sun May 19 10:40:52 2019 +0300
+
+    Merge pull request #27 from AndreyRaykhman/Version2_Of_Improving_legal_move
+    
+    this is 100 % good
+
+[33mcommit 85d0c80f2202526639cfad420c79526b61c3b6d4[m[33m ([m[1;31morigin/Version2_Of_Improving_legal_move[m[33m, [m[1;32mVersion2_Of_Improving_legal_move[m[33m)[m
+Author: NivKosman <Niv.kosman95@gmail.com>
+Date:   Sun May 19 10:32:25 2019 +0300
+
+    this is 100 % good
+
+[33mcommit 30fb543e2de9fb13dd9981b7ffe6d55bc748d600[m
+Merge: f0808fa ccca9d2
+Author: AndreyRaykhman <andrey.richman@gmail.com>
+Date:   Sat May 18 19:14:27 2019 +0300
+
+    Merge pull request #25 from AndreyRaykhman/ui-fix-funcs
+    
+    UI monir changes
+
+[33mcommit ccca9d28cf1d2dda4d5a3d8a486ed3270a1e110c[m[33m ([m[1;31morigin/ui-fix-funcs[m[33m)[m
+Author: Andrey Richman <andrey.richman@gmail.com>
+Date:   Sat May 18 19:13:47 2019 +0300
+
+    UI monir changes
+
+[33mcommit f0808fa295e0ab40498d34172915e2dc4a9a74dc[m
+Merge: f6c412f 069c1c4
+Author: AndreyRaykhman <andrey.richman@gmail.com>
+Date:   Sat May 18 19:12:14 2019 +0300
+
+    Merge pull request #23 from AndreyRaykhman/Is_Move_Legal
+    
+    WooooWWW i Think i Made It!!!!!!!
+
+[33mcommit f6c412fde795f38430d66e573759e28d9ac3912a[m
+Merge: d221c25 e051210
+Author: AndreyRaykhman <andrey.richman@gmail.com>
+Date:   Sat May 18 19:11:35 2019 +0300
+
+    Merge pull request #22 from AndreyRaykhman/Add_Game_Class
+    
+    add Game Class
+
+[33mcommit e05121010e8da853523d1cf7e25c4bce40a47a82[m[33m ([m[1;31morigin/Add_Game_Class[m[33m)[m
+Merge: f8cca9f d221c25
+Author: AndreyRaykhman <andrey.richman@gmail.com>
+Date:   Sat May 18 19:11:13 2019 +0300
+
+    Merge branch 'master' into Add_Game_Class
+
+[33mcommit d221c25d7b7bf9732b298771a91378f7d9d31e9b[m
+Merge: a6d7415 076d58d
+Author: NivKosman <50542585+NivKosman@users.noreply.github.com>
+Date:   Sat May 18 17:44:50 2019 +0300
+
+    Merge pull request #24 from AndreyRaykhman/io-add-validations
+    
+    Io add validations
+
+[33mcommit 076d58d592b054457112719bde240b92d17977c8[m[33m ([m[1;31morigin/io-add-validations[m[33m)[m
+Author: Andrey Richman <andrey.richman@gmail.com>
+Date:   Sat May 18 17:38:04 2019 +0300
+
+    Fix UI and IO classes
+
+[33mcommit 069c1c4a56f46f0f8a9239d50d05ea82ebeaabc5[m[33m ([m[1;31morigin/Is_Move_Legal[m[33m)[m
+Author: NivKosman <Niv.kosman95@gmail.com>
+Date:   Sat May 18 16:08:45 2019 +0300
+
+    WooooWWW i Think i Made It!!!!!!!
+
+[33mcommit fe74d45b8e8fa6ca9019b2bbb8dd0b65e382cd6b[m
+Author: Andrey Richman <andrey.richman@gmail.com>
+Date:   Sat May 18 14:25:19 2019 +0300
+
+    Add messages class
+
+[33mcommit f8cca9f1121c1c928bfe3718252442e857f6ce92[m
+Author: NivKosman <Niv.kosman95@gmail.com>
+Date:   Sat May 18 12:57:16 2019 +0300
+
+    i added Game Class
+    of course we need to improve her but i think the base is good.
+
+[33mcommit a6d7415632fe958dd804b89ab6ffb136bb86f67b[m
+Merge: 1c9d2ca 45bbec2
+Author: NivKosman <50542585+NivKosman@users.noreply.github.com>
+Date:   Sat May 18 11:37:36 2019 +0300
+
+    Merge pull request #21 from AndreyRaykhman/minor-naming-fixes
+    
+    Minor naming changes
+
+[33mcommit 45bbec2f07acd28b14156beed805b081454d07c9[m[33m ([m[1;31morigin/minor-naming-fixes[m[33m)[m
+Author: Andrey Richman <andrey.richman@gmail.com>
+Date:   Sat May 18 10:54:35 2019 +0300
+
+    Minor naming changes
+
+[33mcommit 1c9d2ca8696b28849d4d1bd9a6c2955ff92c0e0c[m
+Merge: c52e690 2dde6cd
+Author: AndreyRaykhman <andrey.richman@gmail.com>
+Date:   Sat May 18 09:58:57 2019 +0300
+
+    Merge pull request #20 from AndreyRaykhman/add_engine_class
+    
+    finnaly add RUN
+
+[33mcommit 2dde6cdfc07767e3e360aa60eb14c0f1b768d91a[m[33m ([m[1;31morigin/add_engine_class[m[33m)[m
+Merge: 09a4150 c52e690
+Author: AndreyRaykhman <andrey.richman@gmail.com>
+Date:   Sat May 18 09:58:39 2019 +0300
+
+    Merge branch 'master' into add_engine_class
+
+[33mcommit 09a4150b9d511805cfd5f1bc016097d8ae17b680[m
+Author: AndreyRaykhman <andrey.richman@gmail.com>
+Date:   Sat May 18 09:57:01 2019 +0300
+
+    Engine: MinorFixes
+
+[33mcommit cf8c24938abb42e5c85eeaa4be66ea076f5b26ab[m
+Author: AndreyRaykhman <andrey.richman@gmail.com>
+Date:   Sat May 18 09:24:19 2019 +0300
+
+    update Board
+    
+    add moveisLegal with indexes, GetListOfValidMovesForPlayer
+
+[33mcommit c52e69000dc61c1b8f4303c071bf0777a33d5821[m
+Merge: 0fa3d21 3fee194
+Author: AndreyRaykhman <andrey.richman@gmail.com>
+Date:   Sat May 18 09:10:55 2019 +0300
+
+    Merge pull request #19 from AndreyRaykhman/add_StringBuilder
+    
+    IOhandler: add stringbuilder
+
+[33mcommit 3fee1946d69e4e96f01e19a4d956106e04d6064d[m[33m ([m[1;31morigin/add_StringBuilder[m[33m)[m
+Merge: 04f7275 0fa3d21
+Author: AndreyRaykhman <andrey.richman@gmail.com>
+Date:   Sat May 18 09:09:53 2019 +0300
+
+    Merge branch 'master' into add_StringBuilder
+
+[33mcommit 0fa3d212170bdc64c8212b488e7e1b9aa5a19f08[m
+Merge: b87c3e9 8391eb4
+Author: AndreyRaykhman <andrey.richman@gmail.com>
+Date:   Sat May 18 09:08:40 2019 +0300
+
+    Merge pull request #13 from AndreyRaykhman/general_view_on_the_project
+    
+    Player and BOARD modifications
+
+[33mcommit 8391eb43031c8ed1c0268871cabfc60d0f660155[m[33m ([m[1;31morigin/general_view_on_the_project[m[33m)[m
+Merge: df5c6fe b87c3e9
+Author: AndreyRaykhman <andrey.richman@gmail.com>
+Date:   Sat May 18 09:07:54 2019 +0300
+
+    Merge branch 'master' into general_view_on_the_project
+
+[33mcommit 96f65db33a1a54cdc1bcc6870e06fd72563d3b11[m
+Author: NivKosman <Niv.kosman95@gmail.com>
+Date:   Fri May 17 19:20:55 2019 +0300
+
+    finnaly add RUN
+    checkkk careefully
+
+[33mcommit 04f7275754c6455c3aa5b1fd2941b68b508e289e[m
+Author: NivKosman <Niv.kosman95@gmail.com>
+Date:   Fri May 17 14:46:06 2019 +0300
+
+    i add the function with stringbuilder
+
+[33mcommit b87c3e9ab1e2a0e2b8391cca1a2efa593ebd1671[m
+Merge: 6994cc9 e9e8609
+Author: NivKosman <50542585+NivKosman@users.noreply.github.com>
+Date:   Fri May 17 14:00:12 2019 +0300
+
+    Merge pull request #18 from AndreyRaykhman/new-io-handler-class
+    
+    Add new class IOhandler
+
+[33mcommit e9e8609dfba57ff151fd75dbcf11ecb4d5207b90[m[33m ([m[1;31morigin/new-io-handler-class[m[33m)[m
+Merge: 98a566b 6994cc9
+Author: AndreyRaykhman <andrey.richman@gmail.com>
+Date:   Fri May 17 13:57:04 2019 +0300
+
+    Merge branch 'master' into new-io-handler-class
+
+[33mcommit 6994cc98d01fa3a393f017eb1463edb1f7824f85[m
+Merge: 4c2eed9 82db564
+Author: AndreyRaykhman <andrey.richman@gmail.com>
+Date:   Fri May 17 13:09:22 2019 +0300
+
+    Merge pull request #17 from AndreyRaykhman/Update_UI
+    
+    i updated UI for no logics
+
+[33mcommit 82db564934eac85d1f355904db99f5e69c080dd6[m[33m ([m[1;31morigin/Update_UI[m[33m)[m
+Author: NivKosman <Niv.kosman95@gmail.com>
+Date:   Fri May 17 12:57:01 2019 +0300
+
+    i updated UI for no logics
+
+[33mcommit 4c2eed91fa2e4edcb70b60c8e84c3ab234cee692[m
+Merge: 9bd6d72 dedd4f5
+Author: NivKosman <50542585+NivKosman@users.noreply.github.com>
+Date:   Fri May 17 12:34:38 2019 +0300
+
+    Merge pull request #16 from AndreyRaykhman/new-input-validator-class
+    
+    Add Input Validator class
+
+[33mcommit dedd4f56046e09b466bda6e5bcb45e2605ab149d[m
+Author: NivKosman <50542585+NivKosman@users.noreply.github.com>
+Date:   Fri May 17 12:34:04 2019 +0300
+
+    Update InputValidator.cs
+    
+    never mind i re-change to out berfore the move
+
+[33mcommit 5b3bd35bf9d38508bb9f6dbc803c81bbc52ea228[m
+Author: NivKosman <50542585+NivKosman@users.noreply.github.com>
+Date:   Fri May 17 12:20:09 2019 +0300
+
+    Update InputValidator.cs
+    
+    i just deleted the out before ref-type(move),therefore i need to update the function in move->TryParse
+
+[33mcommit 9bd6d7232262031bd2ab48db7fc534a7fcb04dab[m
+Merge: ecbbfb8 33b4814
+Author: NivKosman <50542585+NivKosman@users.noreply.github.com>
+Date:   Fri May 17 12:09:21 2019 +0300
+
+    Merge pull request #14 from AndreyRaykhman/move_class_minor_fixes
+    
+    Player: minor changes, add eNum for player type
+
+[33mcommit 98a566b415dae557db7e694f96e387cb59093411[m
+Author: Andrey Richman <andrey.richman@gmail.com>
+Date:   Fri May 17 01:52:32 2019 +0300
+
+    Add new class IOhandler
+
+[33mcommit 8093ad61a6b6dd770cd862e7ca3ba2714732787f[m
+Author: Andrey Richman <andrey.richman@gmail.com>
+Date:   Fri May 17 01:08:32 2019 +0300
+
+    Add Input Validator class
+
+[33mcommit ecbbfb87573eb5ec69d5bab27c41281e7fc8280c[m
+Merge: 00b82ab ad54a91
+Author: AndreyRaykhman <andrey.richman@gmail.com>
+Date:   Fri May 17 00:27:06 2019 +0300
+
+    Merge pull request #7 from AndreyRaykhman/my_new_feature
+    
+    improvements to Move class, Propert for Type=eNum
+
+[33mcommit ad54a9171344fc85bf7c42ff07ffa831e7286b85[m[33m ([m[1;31morigin/my_new_feature[m[33m)[m
+Merge: 20783d5 00b82ab
+Author: AndreyRaykhman <andrey.richman@gmail.com>
+Date:   Fri May 17 00:07:50 2019 +0300
+
+    Merge branch 'master' into my_new_feature
+
+[33mcommit 33b481434c0b86c30e5b3259882bea0edc6d254d[m
+Author: Andrey Richman <andrey.richman@gmail.com>
+Date:   Thu May 16 22:57:57 2019 +0300
+
+    Player: minor changes, add eNum for player type
+
+[33mcommit df5c6fe481ce251e6661b5bc38321c65c8577470[m
+Author: NivKosman <Niv.kosman95@gmail.com>
+Date:   Thu May 16 19:39:05 2019 +0300
+
+    i added few functions and little editing in Board and Player
+
+[33mcommit 00b82ab2134422a5868b9acabde29ce581f633b8[m
+Merge: fd8f1e6 2329654
+Author: NivKosman <50542585+NivKosman@users.noreply.github.com>
+Date:   Thu May 16 17:03:13 2019 +0300
+
+    Merge pull request #12 from AndreyRaykhman/add_Board_class
+    
+    i added Board class and few changes in UI and Player
+
+[33mcommit 2329654a4862f86b181b236b530995b5d46efd72[m[33m ([m[1;31morigin/add_Board_class[m[33m)[m
+Author: NivKosman <Niv.kosman95@gmail.com>
+Date:   Thu May 16 17:02:09 2019 +0300
+
+    i added Board class and few changes in UI and Player
+
+[33mcommit fd8f1e68ed34f428fcbf0f8aaa13bd719f289bcd[m
+Merge: 62c5442 b6059f4
+Author: NivKosman <50542585+NivKosman@users.noreply.github.com>
+Date:   Thu May 16 15:42:47 2019 +0300
+
+    Merge pull request #11 from AndreyRaykhman/extending_UI_class
+    
+    i added few methods to UI class
+
+[33mcommit b6059f4fde37124aa14f4a70ee9372b924f94b6c[m[33m ([m[1;31morigin/extending_UI_class[m[33m)[m
+Author: NivKosman <Niv.kosman95@gmail.com>
+Date:   Thu May 16 15:41:45 2019 +0300
+
+    i added few methods to UI class
+
+[33mcommit 62c5442f8a64d91e888f6147c9be098c2c4b9169[m
+Merge: fd7aabc c432d1a
+Author: NivKosman <50542585+NivKosman@users.noreply.github.com>
+Date:   Thu May 16 14:08:54 2019 +0300
+
+    Merge pull request #10 from AndreyRaykhman/add_UI_Class
+    
+    i created UI class and a little update in player
+
+[33mcommit c432d1a7ba1ef417bdda648d99294f2487cd82b1[m[33m ([m[1;31morigin/add_UI_Class[m[33m)[m
+Author: NivKosman <Niv.kosman95@gmail.com>
+Date:   Thu May 16 14:07:43 2019 +0300
+
+    i created UI class and a little update in player
+
+[33mcommit fd7aabc5b8fd49629c9f0c7c67be962b03bb39dd[m
+Merge: 380c930 dd35f5c
+Author: NivKosman <50542585+NivKosman@users.noreply.github.com>
+Date:   Thu May 16 12:49:17 2019 +0300
+
+    Merge pull request #9 from AndreyRaykhman/add_player_class
+    
+    i added player class
+
+[33mcommit dd35f5cd3f3b3679ffecec57129aa49438499fa5[m[33m ([m[1;31morigin/add_player_class[m[33m)[m
+Author: NivKosman <Niv.kosman95@gmail.com>
+Date:   Thu May 16 12:47:27 2019 +0300
+
+    i added player class
+
+[33mcommit 380c930d24b947a110743ffad81dc4148287f4a9[m
+Merge: 4dea626 ce78d7d
+Author: NivKosman <50542585+NivKosman@users.noreply.github.com>
+Date:   Thu May 16 12:13:37 2019 +0300
+
+    Merge pull request #8 from AndreyRaykhman/improving_move_class
+    
+    i confused in the last commit
+
+[33mcommit ce78d7d4dc45c034dcd0e424dba1cc6b431d4d30[m[33m ([m[1;31morigin/improving_move_class[m[33m, [m[1;32mimproving_move_class[m[33m)[m
+Author: NivKosman <Niv.kosman95@gmail.com>
+Date:   Thu May 16 12:11:33 2019 +0300
+
+    i confused in the last commit
+
+[33mcommit 20783d5af87a58aabc8687e53b724f1206b8168f[m
+Author: NivKosman <Niv.kosman95@gmail.com>
+Date:   Thu May 16 11:44:31 2019 +0300
+
+    i did a few changes to move class
+    (check the changes and update me)
+
+[33mcommit 4dea626509a9009d579822d4451b132e2aa94364[m
+Merge: 3839d4e f4d0190
+Author: NivKosman <50542585+NivKosman@users.noreply.github.com>
+Date:   Wed May 15 19:19:49 2019 +0300
+
+    Merge pull request #6 from AndreyRaykhman/tring_branching
+    
+    Tring branching
+
+[33mcommit f4d01906ca10d60cf1b588f40bc33fbf20d871e3[m[33m ([m[1;31morigin/tring_branching[m[33m)[m
+Author: NivKosman <Niv.kosman95@gmail.com>
+Date:   Wed May 15 19:12:42 2019 +0300
+
+    another good change
+
+[33mcommit 945d2bb7899750af01a034feb3b3406e0fd70cbe[m
+Author: NivKosman <Niv.kosman95@gmail.com>
+Date:   Wed May 15 19:11:59 2019 +0300
+
+    its a good one
+
+[33mcommit 739ab95758294cf420d99037f282a489e38c0282[m
+Merge: bf4fbd7 3839d4e
+Author: NivKosman <Niv.kosman95@gmail.com>
+Date:   Wed May 15 19:07:52 2019 +0300
+
+    Merge branch 'master' of https://github.com/AndreyRaykhman/cs_ex2_OtheloGame
+
+[33mcommit 3839d4e0171219c2651b967b90ae8eee7c812e2e[m
+Merge: 5ab901e 6ec0a96
+Author: AndreyRaykhman <andrey.richman@gmail.com>
+Date:   Tue May 14 20:34:27 2019 +0300
+
+    Merge pull request #5 from AndreyRaykhman/last_try_branch
+    
+    chanfw
+
+[33mcommit 6ec0a960491f788af264fd5420038c3a4e587741[m[33m ([m[1;31morigin/last_try_branch[m[33m)[m
+Author: NivKosman <Niv.kosman95@gmail.com>
+Date:   Tue May 14 18:23:19 2019 +0300
+
+    chanfw
+
+[33mcommit 5ab901e16e494bda74409302821749c2632ed3b1[m[33m ([m[1;32mnew_feature_3_should_work_now[m[33m)[m
+Author: NivKosman <Niv.kosman95@gmail.com>
+Date:   Tue May 14 18:18:47 2019 +0300
+
+    New message added
+
+[33mcommit 06e40b8ece7336a272bb490b5e5ec26ef5f016b0[m
+Merge: dee087e 4f41093
+Author: AndreyRaykhman <andrey.richman@gmail.com>
+Date:   Tue May 14 18:11:28 2019 +0300
+
+    Merge pull request #4 from AndreyRaykhman/add_move_class
+    
+    Add Move Class to hadle Move Input from user
+
+[33mcommit bf4fbd72338931c08c47df6cf42717ee7afcbff9[m
+Author: NivKosman <Niv.kosman95@gmail.com>
+Date:   Tue May 14 17:15:07 2019 +0300
+
+    i did commit cause i cant pull from the master
+
+[33mcommit 4f41093c9512037dca2409b3b70a3b90f14031fb[m[33m ([m[1;31morigin/add_move_class[m[33m)[m
+Author: Andrey Richman <andrey.richman@gmail.com>
+Date:   Tue May 14 03:44:57 2019 +0300
+
+    Add Move Class to hadle Move Input from user
+
+[33mcommit dee087e05ce79e723cbb9d591df9ebedbb57b4fc[m
+Merge: 47eb057 3bc7ed1
+Author: AndreyRaykhman <andrey.richman@gmail.com>
+Date:   Mon May 13 01:05:12 2019 +0300
+
+    Merge pull request #3 from AndreyRaykhman/new_branch
+    
+    minor
+
+[33mcommit 3bc7ed1834c16d16b4e6536dcd71cf1a7b0fd240[m
+Author: Andrey Richman <andrey.richman@gmail.com>
+Date:   Mon May 13 00:53:30 2019 +0300
+
+    minor
+
+[33mcommit 47eb0576c0b4334c73ac166a128b5dfc559d367d[m
+Merge: 05b3952 53b272f
+Author: AndreyRaykhman <andrey.richman@gmail.com>
+Date:   Mon May 13 00:49:23 2019 +0300
+
+    Merge pull request #2 from AndreyRaykhman/seventh_branch
+    
+    Add final commit before starting work
+
+[33mcommit 53b272f6911166e0b23b2ce2f2bea41d333020a9[m
+Author: Andrey Richman <andrey.richman@gmail.com>
+Date:   Mon May 13 00:46:09 2019 +0300
+
+    Add final commit before starting work
+
+[33mcommit 05b39526d73cb339d35db50b616bc2d5c3a9afcf[m
+Merge: 03dd244 7a96394
+Author: AndreyRaykhman <andrey.richman@gmail.com>
+Date:   Sun May 12 19:03:36 2019 +0300
+
+    Merge pull request #1 from AndreyRaykhman/branch1_test
+    
+    Branch1 test
+
+[33mcommit 7a9639445cdad5a5343484f42c45a71095655c43[m
+Author: Andrey <andrey.richman@gmail.com>
+Date:   Sun May 12 18:58:54 2019 +0300
+
+    Program::main:add dot
+
+[33mcommit 5136da1e06ab545a06e93c7b86da1080015c0cc3[m
+Author: Andrey <andrey.richman@gmail.com>
+Date:   Sun May 12 18:55:05 2019 +0300
+
+    add writeline commit
+
+[33mcommit 03dd244a57975fe42db2227d85a63352aaeff186[m
+Author: NivKosman <Niv.kosman95@gmail.com>
+Date:   Sun May 12 15:32:49 2019 +0300
+
+    another one
+
+[33mcommit 88656dbb3ea0e9dbd1c6ca73c7f7150de62de1cd[m
+Author: NivKosman <Niv.kosman95@gmail.com>
+Date:   Sun May 12 15:23:19 2019 +0300
+
+    with ref to ex02.consoleUtils
+
+[33mcommit 62699b986c3f923e21186031612f06e76358d53b[m
+Author: NivKosman <Niv.kosman95@gmail.com>
+Date:   Sun May 12 14:31:27 2019 +0300
+
+    another change
+
+[33mcommit ca4da5cf498d9682e69ed36ddac1a85d2d45910f[m
+Author: AndreyRaykhman <andrey.richman@gmail.com>
+Date:   Sun May 12 13:08:22 2019 +0300
+
+    Change the 'Niv Change' msg
+
+[33mcommit 7a591f9357ca220d8f1d85fa44b31306a082fbf6[m
+Author: NivKosman <Niv.kosman95@gmail.com>
+Date:   Sun May 12 13:03:06 2019 +0300
+
+    i changed your output to check somthing
+
+[33mcommit 37f42c9e880b34242103f18a0e7fa9a788771fe2[m
+Author: NivKosman <Niv.kosman95@gmail.com>
+Date:   Sun May 12 12:59:57 2019 +0300
+
+    niv changes something
+
+[33mcommit 61c51f94675e71a296a183347990b7016458ea98[m
+Author: Andrey Richman <andrey.richman@gmail.com>
+Date:   Sun May 12 01:22:11 2019 +0300
+
+    Remove sign
+
+[33mcommit 497db89dd9c04e2572eac915fb5b4b3097c5ed1c[m
+Author: Andrey Richman <andrey.richman@gmail.com>
+Date:   Sun May 12 01:17:16 2019 +0300
+
+    :)
+
+[33mcommit fb02e62be37567eb8124dec0daef77b6f27e3b65[m
+Author: Andrey Richman <andrey.richman@gmail.com>
+Date:   Sun May 12 01:12:04 2019 +0300
+
+    New commit
+
+[33mcommit afe146fd4e0587a875e703e305bab66d3087b728[m
+Merge: d64e421 c5e37d0
+Author: Andrey Richman <andrey.richman@gmail.com>
+Date:   Sun May 12 01:09:32 2019 +0300
+
+    Merge commit 'c5e37d001bf70cda8bfe26983ae05ed71eee170c'
+    
+    Conflicts:
+            Program.cs
+
+[33mcommit c5e37d001bf70cda8bfe26983ae05ed71eee170c[m
+Author: Andrey Richman <andrey.richman@gmail.com>
+Date:   Sun May 12 01:05:15 2019 +0300
+
+    Add several smileys
+
+[33mcommit d64e421d5f1954034a5a3150fb3e96d110959eee[m
+Author: Andrey Richman <andrey.richman@gmail.com>
+Date:   Sun May 12 01:02:48 2019 +0300
+
+    Change to sad smiley
+
+[33mcommit 5fcf7184c8e1f0eb119198d58a1800da48f3a1ae[m
+Author: Andrey Richman <andrey.richman@gmail.com>
+Date:   Sun May 12 00:58:10 2019 +0300
+
+    Add smileyyy
+
+[33mcommit 0eb93e4f728c46b39aac8f20a5836af382894fe0[m
+Author: Andrey Richman <andrey.richman@gmail.com>
+Date:   Sun May 12 00:46:31 2019 +0300
+
+    Check Change
+
+[33mcommit f2e454623ae6092a84962b97bb6cb2943b1272f2[m
+Author: Andrey Richman <andrey.richman@gmail.com>
+Date:   Sun May 12 00:18:53 2019 +0300
+
+    First commit
