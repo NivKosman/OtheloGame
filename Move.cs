@@ -17,7 +17,8 @@ namespace Ex02_Othelo
 
         const int k_LengthOfMoveStr = 2;
         const int k_LengthOfQuitStr = 1;
-
+        
+        
         public void AddValidDirection(Directions i_DirectionToAdd, Board.Cell i_EndCell)
         {
             if (m_validDirections == null)
@@ -57,7 +58,7 @@ namespace Ex02_Othelo
             m_Quite = i_IsQuit;
         }
 
-        public static bool TryParse(string i_MoveString, out Move o_Move)
+        public static bool TryParse(string i_MoveString, Move o_Move)
         {
             o_Move = null;
             if (i_MoveString == null)
@@ -65,14 +66,14 @@ namespace Ex02_Othelo
                 return false;
             }
 
-            bool v_InputIsValid = checkMoveStringIsValidMove(i_MoveString, ref o_Move);
+            bool v_InputIsValid = checkMoveStringIsValidMove(i_MoveString, o_Move);
 
             return v_InputIsValid;
 
         }
 
         private static bool checkMoveStringIsValidMove(string i_InputMoveStr,
-                                                         ref Move io_Move)
+                                                          Move io_Move)
         {
             bool v_LengthIsValid;
             bool v_StringIsValidMove = false;
@@ -80,7 +81,7 @@ namespace Ex02_Othelo
             v_LengthIsValid = checkMoveStringLengthIsValid(i_InputMoveStr);
             if (v_LengthIsValid == true)
             {
-                v_StringIsValidMove = checkMoveStringIsLegal(i_InputMoveStr, io_Move);
+                v_StringIsValidMove = checkMoveStringIsLegal(i_InputMoveStr,out io_Move);
             }
 
             return v_StringIsValidMove;
@@ -94,7 +95,7 @@ namespace Ex02_Othelo
             return v_QuitLength || v_MoveLength;
         }
 
-        private static bool checkMoveStringIsLegal(string i_InputMoveStr,  Move io_Move)
+        private static bool checkMoveStringIsLegal(string i_InputMoveStr,  out Move io_Move)
         {
             bool v_MoveIsCharAndIndexInRange = false;
             bool v_MoveIsQuit = textIsQuit(i_InputMoveStr);
@@ -105,14 +106,15 @@ namespace Ex02_Othelo
             }
             else
             {
-                v_MoveIsCharAndIndexInRange = CharAndNumInValidRange(i_InputMoveStr, io_Move);
+                v_MoveIsCharAndIndexInRange = CharAndNumInValidRange(i_InputMoveStr, out io_Move);
             }
 
             return v_MoveIsQuit || v_MoveIsCharAndIndexInRange;
         }
 
-        private static bool CharAndNumInValidRange(string i_InputMoveStr, Move io_Move)
+        private static bool CharAndNumInValidRange(string i_InputMoveStr, out Move io_Move)
         {
+            io_Move = null;
             char v_FirstChar = i_InputMoveStr[c_IndexOfCharacter];
             char v_SecondChar = i_InputMoveStr[c_IndexOfNumber];
 

@@ -20,7 +20,7 @@ namespace Ex02_Othelo
 
         public Move GetNextMove(Player i_Player)
         {
-            Move nextMove;
+            Move nextMove=null;
             string nextMoveString;
             bool moveIsValid = false;
 
@@ -28,7 +28,7 @@ namespace Ex02_Othelo
             while (!moveIsValid)
             {
                 nextMoveString = m_UIhandler.GetNextMoveString();
-                moveIsValid = m_Valdator.MoveIsValid(nextMoveString, out nextMove);
+                moveIsValid = m_Valdator.MoveIsValid(nextMoveString,  nextMove);
                 if (!moveIsValid)
                 {
                     m_UIhandler.ShowInvalidMoveMessage();

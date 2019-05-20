@@ -12,9 +12,9 @@ namespace Ex02_Othelo
         {
         }
 
-        public bool MoveStringIsValidMove(string i_MoveString, out Move o_NextMove)
+        public bool MoveStringIsValidMove(string i_MoveString,  Move o_NextMove)
         {
-            return Move.TryParse(i_MoveString, out o_NextMove);
+            return Move.TryParse(i_MoveString,  o_NextMove);
         }
 
         public bool BoardSizeIsValid(string i_BoardSizeString, out int o_BoardSize)
@@ -73,10 +73,10 @@ namespace Ex02_Othelo
             }
         }
 
-        public bool MoveIsValid(string i_MoveString,out Move o_NextMove)
+        public bool MoveIsValid(string i_MoveString, Move o_NextMove)
         {
             o_NextMove = null;
-            return Move.TryParse(i_MoveString, out o_NextMove); 
+            return Move.TryParse(i_MoveString,  o_NextMove); 
         }
 
         public bool PlayAgainIsValid(string i_PlayAgainString, out bool o_PlayAgain)
