@@ -222,7 +222,7 @@ namespace Ex02_Othelo
             {
                 for (j = 0; j < r_Width; j++)
                 {
-                    Move move; 
+                    Move move;
                     if (MoveIsLegal(i, j, i_Player.Color, out move))
                     {
                         validMoves.Add(move);

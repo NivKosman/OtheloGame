@@ -92,6 +92,7 @@ namespace Ex02_Othelo
             {
                 inputIsNotValid = m_Valdator.PlayAgainIsValid(enteredOption, out startNewGameSelected);
             }
+
             return startNewGameSelected;
         }
 
@@ -141,7 +142,8 @@ namespace Ex02_Othelo
 
         public void ShowGoodByeMessage()
         {
-            m_UIhandler.ShowGameEnded();
+               m_UIhandler.ShowGameEnded();
+               Environment.Exit(1);
         }
 
         public void ShowGameQuittedMessage()

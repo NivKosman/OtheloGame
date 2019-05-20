@@ -35,7 +35,7 @@ namespace Ex02_Othelo
             Console.Write(i_BoardString);
         }
 
-        public string GetResponseForPlayAgainMessage() 
+        public string GetResponseForPlayAgainMessage()
         {
             PrintMessage(GameMessages.PlayAgain);
 

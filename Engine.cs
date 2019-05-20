@@ -66,13 +66,12 @@ namespace Ex02_Othelo
                     }
                     currPlayerHasMoves = PlayerHasAnyValidMoves(Players[0]);
                     if (currPlayerHasMoves && Players[0].Type == Player.ePlayerType.Player)
-                    { 
+                    {
                          nextMove = m_IO.GetNextMove(Players[0]);
                     }
 
                     nextMoveIsQuit = nextMove.IsQuitMove();
                }
-               m_IO.ShowBoard(m_Board);
 
                m_Player1.Score = m_Board.AmountOfColorInBoard(m_Player1.Color);
                m_Player2.Score = m_Board.AmountOfColorInBoard(m_Player2.Color);

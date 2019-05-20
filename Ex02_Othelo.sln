@@ -1,7 +1,13 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex02_Othelo", "Ex02_Othelo.csproj", "{F2918FC0-D00D-475E-AC9B-1B3952E95667}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2C51BD1A-3564-4356-B330-50B6D3E238E8}"
+	ProjectSection(SolutionItems) = preProject
+		B19 Ex02 Niv 206171696 Andrey 321082513.txt = B19 Ex02 Niv 206171696 Andrey 321082513.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,5 +19,8 @@ Global
 		{F2918FC0-D00D-475E-AC9B-1B3952E95667}.Debug|x86.Build.0 = Debug|x86
 		{F2918FC0-D00D-475E-AC9B-1B3952E95667}.Release|x86.ActiveCfg = Release|x86
 		{F2918FC0-D00D-475E-AC9B-1B3952E95667}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
