@@ -81,7 +81,8 @@ namespace Ex02_Othelo
 
         public void ShowGameEnded()
         {
-            PrintMessage(GameMessages.GameEnded);
+               PrintMessage(GameMessages.GameEnded);
+               Environment.Exit(1);
         }
 
         public void ShowGameQuitted()
