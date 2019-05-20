@@ -84,13 +84,13 @@ namespace Ex02_Othelo
 
         public bool GetStartNewGameSelection()
         {
-            bool inputIsNotValid = true;
+            bool inputIsValid = false;
             bool startNewGameSelected = true;
             string enteredOption = m_UIhandler.GetResponseForPlayAgainMessage();
 
-            while (inputIsNotValid)
+            while (!inputIsValid)
             {
-                inputIsNotValid = m_Valdator.PlayAgainIsValid(enteredOption, out startNewGameSelected);
+                inputIsValid = m_Valdator.PlayAgainIsValid(enteredOption, out startNewGameSelected);
             }
 
             return startNewGameSelected;
