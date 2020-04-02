@@ -10,6 +10,7 @@ namespace Ex02_Othelo
         public static void Main()
           {
                Game game = new Game();
+                Console.WriteLine("Hello");
                game.Start();
           }           
      }

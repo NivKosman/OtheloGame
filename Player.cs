@@ -12,7 +12,7 @@ namespace Ex02_Othelo
           private readonly ePlayerType r_PlayerType;
           private readonly eColor r_Color;
           private string m_PlayerName;
-
+        //Console.WriteLine("Hello");
          
 
           public string PlayerName
