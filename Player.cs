@@ -11,9 +11,7 @@ namespace Ex02_Othelo
           private int m_Score = 0;
           private readonly ePlayerType r_PlayerType;
           private readonly eColor r_Color;
-          private string m_PlayerName;
-        //Console.WriteLine("Hello");
-         
+          private string m_PlayerName;         
 
           public string PlayerName
           {
